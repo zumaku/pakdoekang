@@ -22,7 +22,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.TicketAlt(color: iconColor),
+      child: MyIcon.ticketAlt(color: iconColor),
     );
   }
 
@@ -40,7 +40,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.Book(color: iconColor),
+      child: MyIcon.book(color: iconColor),
     );
   }
 
@@ -58,7 +58,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.Pizza(color: iconColor),
+      child: MyIcon.pizza(color: iconColor),
     );
   }
 
@@ -76,7 +76,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.BagAlt(color: iconColor),
+      child: MyIcon.bagAlt(color: iconColor),
     );
   }
 
@@ -94,7 +94,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.Gamepad(color: iconColor),
+      child: MyIcon.gamepad(color: iconColor),
     );
   }
 
@@ -112,7 +112,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.Paper(color: iconColor),
+      child: MyIcon.paper(color: iconColor),
     );
   }
 
@@ -130,7 +130,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.Wallet(color: iconColor),
+      child: MyIcon.wallet(color: iconColor),
     );
   }
 
@@ -148,7 +148,7 @@ class MyCategoryIcon {
         borderRadius: BorderRadius.circular(50),
         color: backgroundColor,
       ),
-      child: MyIcon.Creditcard(color: iconColor),
+      child: MyIcon.creditcard(color: iconColor),
     );
   }
 

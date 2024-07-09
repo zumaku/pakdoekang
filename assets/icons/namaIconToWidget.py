@@ -9,9 +9,13 @@ def generate_widget_definitions(directory):
     for file_name in file_names:
         # Dapatkan nama file tanpa ekstensi
         name_without_extension = os.path.splitext(file_name)[0]
+        
+        # Buat nama widget dengan aturan yang diminta
+        widget_name = name_without_extension[0].lower() + name_without_extension[1:]
+        
         # Buat teks yang sesuai
         widget_definition = f"""
-  static Widget {name_without_extension}({{Color color = MyColor.base, double size = 24.0}}) {{
+  static Widget {widget_name}({{Color color = MyColor.base, double size = 24.0}}) {{
     return CustomIcon(
       iconName: '{name_without_extension}',
       color: color,
