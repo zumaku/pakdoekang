@@ -7,103 +7,102 @@ void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  final List<Widget> pages = [
-    PageToday(),
-    PageArchive(),
-    PageOverview(),
-  ];
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
 
+class _MyAppState extends State<MyApp> {
   int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
-    // Ketika item navbar dipilih, ubah _selectedIndex sesuai dengan index yang dipilih
-    _selectedIndex = index;
-    // Lakukan navigasi atau perubahan halaman sesuai dengan kebutuhan aplikasi
-    // Contoh: Navigator.push(...) atau setState(...)
+    setState(() {
+      _selectedIndex = index;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      PageToday(),
+      PageArchive(),
+      PageOverview(),
+    ];
+
     return MaterialApp(
       theme: ThemeData(
         primaryColor: MyColor.brand, // Warna utama aplikasi
         scaffoldBackgroundColor: MyColor.base1, // Warna latar belakang scaffold
       ),
       home: Scaffold(
-          appBar: AppBar(
-            title: Text('Navbar Example'),
+        appBar: AppBar(
+          title: Text('Navbar Example'),
+        ),
+        body: pages[_selectedIndex],
+        bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(30),
+              topLeft: Radius.circular(30),
+            ),
+            boxShadow: [
+              MyShadow.shadowTwo(),
+            ],
           ),
-          body: pages[_selectedIndex],
-          bottomNavigationBar: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(30),
-                    topLeft: Radius.circular(30)),
-                boxShadow: [
-                  // BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
-                  MyShadow.shadowTwo()
-                ],
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(15.0),
+              topRight: Radius.circular(15.0),
+            ),
+            child: BottomNavigationBar(
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+              backgroundColor: Colors.white,
+              fixedColor: MyColor.brand,
+              unselectedItemColor: MyColor.base2,
+              type: BottomNavigationBarType.fixed,
+              elevation: 10,
+              selectedLabelStyle: const TextStyle(
+                fontWeight: FontWeight.normal,
+                fontSize: 14,
               ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(15.0),
-                  topRight: Radius.circular(15.0),
+              unselectedLabelStyle: const TextStyle(
+                fontWeight: FontWeight.normal,
+                fontSize: 14,
+              ),
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: _selectedIndex == 0
+                      ? MyIcon.calenderFill(
+                          color: _selectedIndex == 0
+                              ? MyColor.brand
+                              : MyColor.base)
+                      : MyIcon.calenderAlt(),
+                  label: 'Hari Ini',
                 ),
-                child: BottomNavigationBar(
-                  currentIndex: _selectedIndex,
-                  onTap: _onItemTapped,
-                  backgroundColor: Colors.white,
-                  fixedColor: MyColor.brand,
-                  unselectedItemColor: MyColor.base2,
-                  type: BottomNavigationBarType.fixed,
-                  elevation: 10,
-                  selectedLabelStyle:
-                      const TextStyle(fontWeight: FontWeight.bold),
-                  unselectedLabelStyle:
-                      const TextStyle(fontWeight: FontWeight.normal),
-                  items: <BottomNavigationBarItem>[
-                    BottomNavigationBarItem(
-                      icon: MyIcon.calenderFill(color: MyColor.brand),
-                      label: 'Hari Ini',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: MyIcon.archiveAlt(),
-                      label: 'Arsip',
-                    ),
-                    BottomNavigationBarItem(
-                      icon: MyIcon.pieChartAlt(),
-                      label: 'Overview',
-                    ),
-                  ],
+                BottomNavigationBarItem(
+                  icon: _selectedIndex == 1
+                      ? MyIcon.archiveFill(
+                          color: _selectedIndex == 1
+                              ? MyColor.brand
+                              : MyColor.base)
+                      : MyIcon.archiveAlt(),
+                  label: 'Arsip',
                 ),
-              ))
-          // bottomNavigationBar: BottomNavigationBar(
-          // currentIndex: _selectedIndex,
-          // onTap: _onItemTapped,
-          // backgroundColor: Colors.white,
-          // fixedColor: MyColor.brand,
-          // unselectedItemColor: MyColor.base2,
-          // type: BottomNavigationBarType.fixed,
-          // elevation: 10,
-          // selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-          // unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
-          //   items: [
-          // BottomNavigationBarItem(
-          //   icon: MyIcon.calenderFill(color: MyColor.brand),
-          //   label: 'Hari Ini',
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: MyIcon.archiveAlt(),
-          //   label: 'Arsip',
-          // ),
-          // BottomNavigationBarItem(
-          //   icon: MyIcon.pieChartAlt(),
-          //   label: 'Overview',
-          // ),
-          //   ],
-          // ),
+                BottomNavigationBarItem(
+                  icon: _selectedIndex == 2
+                      ? MyIcon.pieChartFill(
+                          color: _selectedIndex == 2
+                              ? MyColor.brand
+                              : MyColor.base)
+                      : MyIcon.pieChartAlt(),
+                  label: 'Overview',
+                ),
+              ],
+            ),
           ),
+        ),
+      ),
     );
   }
 }
