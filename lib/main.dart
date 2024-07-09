@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'styles/colors.dart';
+import 'widgets/colors.dart';
 
 void main() {
   runApp(MyApp());
