@@ -3,9 +3,8 @@ import 'package:pakdoekang/pages/archive_page.dart';
 import 'package:pakdoekang/pages/overview_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/widgets/bottom_navbar.dart';
+import 'package:pakdoekang/widgets/my_app_bar.dart';
 import 'package:pakdoekang/widgets/my_colors.dart';
-import 'package:pakdoekang/widgets/my_icon.dart';
-import 'package:pakdoekang/widgets/my_shadow.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,12 +34,15 @@ class _MyAppState extends State<MyApp> {
 
     return MaterialApp(
       theme: ThemeData(
+        appBarTheme: MyAppBar.theme,
         primaryColor: MyColor.brand,
         scaffoldBackgroundColor: MyColor.base1,
       ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Navbar Example'),
+        appBar: MyAppBar(
+          selectedIndex: _selectedIndex,
+          profileImage:
+              'assets/images/ProfilePicture.png', // Path gambar profil lokal
         ),
         body: pages[_selectedIndex],
         bottomNavigationBar: BottomNavbar(
