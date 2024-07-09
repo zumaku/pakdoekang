@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'styles/colors.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,9 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Custom Font Example'),
+          title: Text('Custom Color Example'),
         ),
-        body: Center(
+        body: const Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
               ),
               Text(
                 'Montserrat Bold',
-                style: TextStyle(fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
               ),
               Text(
                 'WorkSans Regular',
@@ -30,7 +32,16 @@ class MyApp extends StatelessWidget {
               ),
               Text(
                 'WorkSans Bold',
-                style: TextStyle(fontFamily: 'WorkSans', fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontFamily: 'WorkSans', fontWeight: FontWeight.bold),
+              ),
+              Text(
+                'Brand Color',
+                style: TextStyle(color: MyColor.brand),
+              ),
+              Text(
+                'Base Color',
+                style: TextStyle(color: MyColor.base),
               ),
             ],
           ),
