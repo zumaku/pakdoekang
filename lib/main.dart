@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/pages/archive_page.dart';
+import 'package:pakdoekang/pages/overview_page.dart';
+import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/widgets/my_colors.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/my_shadow.dart';
@@ -24,9 +27,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-      PageToday(),
-      PageArchive(),
-      PageOverview(),
+      TodayPage(),
+      ArchivePage(),
+      OverviewPage(),
     ];
 
     return MaterialApp(
@@ -103,33 +106,6 @@ class _MyAppState extends State<MyApp> {
           ),
         ),
       ),
-    );
-  }
-}
-
-class PageToday extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Halaman Hari Ini'),
-    );
-  }
-}
-
-class PageArchive extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Halaman Arsip'),
-    );
-  }
-}
-
-class PageOverview extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Halaman Overview'),
     );
   }
 }
