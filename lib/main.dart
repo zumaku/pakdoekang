@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
+import 'package:pakdoekang/widgets/my_shadow.dart';
 import 'package:pakdoekang/widgets/my_text.dart';
 import 'widgets/my_colors.dart';
 
@@ -70,6 +71,17 @@ class MyApp extends StatelessWidget {
                   MyText.paragraphOne("Ini Paragraph 1"),
                   MyText.buttonOne("Ini Button 1", color: MyColor.brand),
                 ],
+              ),
+              Container(
+                width: 100,
+                height: 100,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    MyShadow.shadowOne(),
+                  ],
+                ),
+                child: Center(child: Text('Shadow 1')),
               ),
             ],
           ),
