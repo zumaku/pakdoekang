@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/widgets/icons.dart';
 import 'widgets/colors.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('Custom Color Example'),
         ),
-        body: const Center(
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -43,6 +44,11 @@ class MyApp extends StatelessWidget {
                 'Base Color',
                 style: TextStyle(color: MyColor.base),
               ),
+              Container(
+                  child: MyIcon.ArchiveFill(
+                color: MyColor.base3,
+                size: 48,
+              )),
             ],
           ),
         ),
