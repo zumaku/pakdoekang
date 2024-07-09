@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pakdoekang/pages/archive_page.dart';
 import 'package:pakdoekang/pages/overview_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
-import 'package:pakdoekang/widgets/bottom_navbar.dart';
+import 'package:pakdoekang/widgets/my_bottom_navbar.dart';
 import 'package:pakdoekang/widgets/my_app_bar.dart';
 import 'package:pakdoekang/widgets/my_colors.dart';
 
@@ -45,7 +45,7 @@ class _MyAppState extends State<MyApp> {
               'assets/images/ProfilePicture.png', // Path gambar profil lokal
         ),
         body: pages[_selectedIndex],
-        bottomNavigationBar: BottomNavbar(
+        bottomNavigationBar: MyBottomNavbar(
           selectedIndex: _selectedIndex,
           onItemTapped: _onItemTapped,
         ),
