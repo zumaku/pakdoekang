@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
+import 'package:pakdoekang/widgets/my_text.dart';
 import 'widgets/my_colors.dart';
 
 void main() {
@@ -61,6 +62,15 @@ class MyApp extends StatelessWidget {
                 child: MyIcon.TicketAlt(color: MyColor.base5),
               ),
               MyCategoryIcon.Hadiah(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  MyText.headingFive("Ini Heading 1", color: MyColor.brand),
+                  MyText.headingSix("Ini Heading 2"),
+                  MyText.paragraphOne("Ini Paragraph 1"),
+                  MyText.buttonOne("Ini Button 1", color: MyColor.brand),
+                ],
+              ),
             ],
           ),
         ),
