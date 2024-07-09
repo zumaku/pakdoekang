@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'colors.dart';
-import 'icons.dart';
+import 'my_colors.dart';
+import 'my_icon.dart';
 
 class MyCategoryIcon {
   static const double defaultWidth = 32.0;

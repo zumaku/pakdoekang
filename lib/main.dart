@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pakdoekang/widgets/category_icons.dart';
-import 'package:pakdoekang/widgets/icons.dart';
-import 'widgets/colors.dart';
+import 'package:pakdoekang/widgets/my_category_icons.dart';
+import 'package:pakdoekang/widgets/my_icon.dart';
+import 'widgets/my_colors.dart';
 
 void main() {
   runApp(MyApp());
