@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/widgets/category_icons.dart';
 import 'package:pakdoekang/widgets/icons.dart';
 import 'widgets/colors.dart';
 
@@ -49,6 +50,17 @@ class MyApp extends StatelessWidget {
                 color: MyColor.base3,
                 size: 48,
               )),
+              Container(
+                width: 32,
+                height: 32,
+                padding: EdgeInsets.all(4),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50),
+                  color: MyColor.brand,
+                ),
+                child: MyIcon.TicketAlt(color: MyColor.base5),
+              ),
+              MyCategoryIcon.Hadiah(),
             ],
           ),
         ),
