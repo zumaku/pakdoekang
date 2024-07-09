@@ -1,92 +1,136 @@
 import 'package:flutter/material.dart';
-import 'package:pakdoekang/widgets/my_category_icons.dart';
+import 'package:pakdoekang/widgets/my_colors.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/my_shadow.dart';
-import 'package:pakdoekang/widgets/my_text.dart';
-import 'widgets/my_colors.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  final List<Widget> pages = [
+    PageToday(),
+    PageArchive(),
+    PageOverview(),
+  ];
+
+  int _selectedIndex = 0;
+
+  void _onItemTapped(int index) {
+    // Ketika item navbar dipilih, ubah _selectedIndex sesuai dengan index yang dipilih
+    _selectedIndex = index;
+    // Lakukan navigasi atau perubahan halaman sesuai dengan kebutuhan aplikasi
+    // Contoh: Navigator.push(...) atau setState(...)
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        primaryColor: MyColor.brand, // Warna utama aplikasi
+        scaffoldBackgroundColor: MyColor.base1, // Warna latar belakang scaffold
+      ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Custom Color Example'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                'Montserrat Regular',
-                style: TextStyle(fontFamily: 'Montserrat'),
-              ),
-              Text(
-                'Montserrat Bold',
-                style: TextStyle(
-                    fontFamily: 'Montserrat', fontWeight: FontWeight.bold),
-              ),
-              Text(
-                'WorkSans Regular',
-                style: TextStyle(fontFamily: 'WorkSans'),
-              ),
-              Text(
-                'WorkSans Bold',
-                style: TextStyle(
-                    fontFamily: 'WorkSans', fontWeight: FontWeight.bold),
-              ),
-              Text(
-                'Brand Color',
-                style: TextStyle(color: MyColor.brand),
-              ),
-              Text(
-                'Base Color',
-                style: TextStyle(color: MyColor.base),
-              ),
-              Container(
-                  child: MyIcon.ArchiveFill(
-                color: MyColor.base3,
-                size: 48,
-              )),
-              Container(
-                width: 32,
-                height: 32,
-                padding: EdgeInsets.all(4),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(50),
-                  color: MyColor.brand,
-                ),
-                child: MyIcon.TicketAlt(color: MyColor.base5),
-              ),
-              MyCategoryIcon.Hadiah(),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  MyText.headingFive("Ini Heading 1", color: MyColor.brand),
-                  MyText.headingSix("Ini Heading 2"),
-                  MyText.paragraphOne("Ini Paragraph 1"),
-                  MyText.buttonOne("Ini Button 1", color: MyColor.brand),
+          appBar: AppBar(
+            title: Text('Navbar Example'),
+          ),
+          body: pages[_selectedIndex],
+          bottomNavigationBar: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(30),
+                    topLeft: Radius.circular(30)),
+                boxShadow: [
+                  // BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+                  MyShadow.shadowTwo()
                 ],
               ),
-              Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    MyShadow.shadowOne(),
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(15.0),
+                  topRight: Radius.circular(15.0),
+                ),
+                child: BottomNavigationBar(
+                  currentIndex: _selectedIndex,
+                  onTap: _onItemTapped,
+                  backgroundColor: Colors.white,
+                  fixedColor: MyColor.brand,
+                  unselectedItemColor: MyColor.base2,
+                  type: BottomNavigationBarType.fixed,
+                  elevation: 10,
+                  selectedLabelStyle:
+                      const TextStyle(fontWeight: FontWeight.bold),
+                  unselectedLabelStyle:
+                      const TextStyle(fontWeight: FontWeight.normal),
+                  items: <BottomNavigationBarItem>[
+                    BottomNavigationBarItem(
+                      icon: MyIcon.calenderFill(color: MyColor.brand),
+                      label: 'Hari Ini',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: MyIcon.archiveAlt(),
+                      label: 'Arsip',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: MyIcon.pieChartAlt(),
+                      label: 'Overview',
+                    ),
                   ],
                 ),
-                child: Center(child: Text('Shadow 1')),
-              ),
-            ],
+              ))
+          // bottomNavigationBar: BottomNavigationBar(
+          // currentIndex: _selectedIndex,
+          // onTap: _onItemTapped,
+          // backgroundColor: Colors.white,
+          // fixedColor: MyColor.brand,
+          // unselectedItemColor: MyColor.base2,
+          // type: BottomNavigationBarType.fixed,
+          // elevation: 10,
+          // selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+          // unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
+          //   items: [
+          // BottomNavigationBarItem(
+          //   icon: MyIcon.calenderFill(color: MyColor.brand),
+          //   label: 'Hari Ini',
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: MyIcon.archiveAlt(),
+          //   label: 'Arsip',
+          // ),
+          // BottomNavigationBarItem(
+          //   icon: MyIcon.pieChartAlt(),
+          //   label: 'Overview',
+          // ),
+          //   ],
+          // ),
           ),
-        ),
-      ),
+    );
+  }
+}
+
+class PageToday extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Halaman Hari Ini'),
+    );
+  }
+}
+
+class PageArchive extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Halaman Arsip'),
+    );
+  }
+}
+
+class PageOverview extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('Halaman Overview'),
     );
   }
 }
