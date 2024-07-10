@@ -1,5 +1,6 @@
-import 'package:flutter/foundation.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/services/currency_format.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -48,7 +49,8 @@ class ActivityCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           MyText.subTitleOne(displayText),
-                          MyText.paragraphOne(amount.toString()),
+                          MyText.paragraphOne(
+                              CurrencyFormat.convertToIdr(amount, 0)),
                         ],
                       ),
                       getIcon(category)
