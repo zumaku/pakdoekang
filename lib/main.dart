@@ -5,8 +5,14 @@ import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/widgets/my_bottom_navbar.dart';
 import 'package:pakdoekang/widgets/my_app_bar.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(MyApp());
 }
 
