@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
@@ -5,15 +6,26 @@ import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 
 class ActivityCard extends StatelessWidget {
-  const ActivityCard({super.key});
+  final String activity;
+  final double amount;
+  final String category;
+  final DateTime date;
+  final bool isSpend;
+
+  ActivityCard({
+    super.key,
+    required this.activity,
+    required this.amount,
+    required this.category,
+    required this.date,
+    required this.isSpend,
+  });
 
   @override
   Widget build(BuildContext context) {
     // Logic perubahan text card
-    String text = "Beli nasi kuning di warung pak mamat";
-    if (text.length > 30) {
-      text = "${text.substring(0, 30)}...";
-    }
+    String displayText =
+        activity.length > 30 ? "${activity.substring(0, 30)}..." : activity;
 
     return GestureDetector(
         onTap: () {
@@ -35,11 +47,11 @@ class ActivityCard extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          MyText.subTitleOne(text),
-                          MyText.paragraphOne("RP. 12.000"),
+                          MyText.subTitleOne(displayText),
+                          MyText.paragraphOne(amount.toString()),
                         ],
                       ),
-                      MyCategoryIcon.makan()
+                      getIcon(category)
                     ],
                   ),
                   SizedBox(
@@ -48,8 +60,9 @@ class ActivityCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      MyText.labelTwo("Hari ini", color: MyColor.base4),
-                      MyIcon.arrowUp_bold(),
+                      MyText.labelTwo("${date.day}-${date.month}-${date.year}",
+                          color: MyColor.base4),
+                      isSpend ? MyIcon.arrowUp_bold() : MyIcon.arrowDownBold(),
                     ],
                   ),
                 ],
@@ -60,5 +73,31 @@ class ActivityCard extends StatelessWidget {
             ),
           ],
         ));
+  }
+
+  static Widget getIcon(String category) {
+    switch (category.toLowerCase()) {
+      case 'makan':
+        return MyCategoryIcon.makan();
+      case 'kuliah':
+        return MyCategoryIcon.kuliah();
+      case 'hiburan':
+        return MyCategoryIcon.hiburan();
+      case 'utang':
+        return MyCategoryIcon.utang();
+      case 'belanja':
+        return MyCategoryIcon.belanja();
+      case 'tabungan':
+        return MyCategoryIcon.tabungan();
+      case 'iuran':
+        return MyCategoryIcon.iuran();
+      case 'gajian':
+        return MyCategoryIcon.gajian();
+      case 'hadiah':
+        return MyCategoryIcon.hadiah();
+      default:
+        return MyCategoryIcon
+            .makan(); // fallback icon if category is not recognized
+    }
   }
 }
