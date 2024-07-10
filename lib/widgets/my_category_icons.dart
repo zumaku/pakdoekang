@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'my_colors.dart';
+import 'styles/my_colors.dart';
 import 'my_icon.dart';
 
 class MyCategoryIcon {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pakdoekang/widgets/my_colors.dart';
+import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 
 class MyBottomNavbar extends StatelessWidget {

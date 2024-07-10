@@ -4,7 +4,7 @@ import 'package:pakdoekang/pages/overview_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/widgets/my_bottom_navbar.dart';
 import 'package:pakdoekang/widgets/my_app_bar.dart';
-import 'package:pakdoekang/widgets/my_colors.dart';
+import 'package:pakdoekang/widgets/styles/my_colors.dart';
 
 void main() {
   runApp(MyApp());

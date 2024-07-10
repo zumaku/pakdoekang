@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'my_colors.dart';
+import 'styles/my_colors.dart';
 
 class MyIcon {
   static Widget accountorABN({Color color = MyColor.base, double size = 24.0}) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pakdoekang/widgets/my_colors.dart';
-import 'package:pakdoekang/widgets/my_shadow.dart';
-import 'package:pakdoekang/widgets/my_text.dart';
+import 'package:pakdoekang/widgets/styles/my_colors.dart';
+import 'package:pakdoekang/widgets/styles/my_shadow.dart';
+import 'package:pakdoekang/widgets/styles/my_text.dart';
 
 class DailySpendCard extends StatelessWidget {
   const DailySpendCard({super.key});
