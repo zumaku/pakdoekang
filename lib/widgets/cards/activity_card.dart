@@ -1,6 +1,7 @@
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/services/currency_format.dart';
+import 'package:pakdoekang/services/date_converter.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -62,7 +63,8 @@ class ActivityCard extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      MyText.labelTwo("${date.day}-${date.month}-${date.year}",
+                      // MyText.labelTwo("${date.day}-${date.month}-${date.year}",
+                      MyText.labelTwo(DateConverter.convert(date),
                           color: MyColor.base4),
                       isSpend ? MyIcon.arrowUp_bold() : MyIcon.arrowDownBold(),
                     ],
