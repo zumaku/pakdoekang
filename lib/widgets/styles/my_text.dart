@@ -178,7 +178,7 @@ class MyText {
       text,
       style: TextStyle(
         fontFamily: 'Montserrat',
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: FontWeight.w600, // SemiBold
         color: color,
         height: 16 / 10, // Lineheight 16
