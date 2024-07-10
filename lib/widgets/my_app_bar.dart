@@ -81,7 +81,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   static AppBarTheme get theme {
     return const AppBarTheme(
       elevation: 8, // Atur nilai elevation secara global
-      shadowColor: MyColor.base1, // Atur warna bayangan
+      // shadowColor: MyColor.base1, // Atur warna bayangan
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(15),
