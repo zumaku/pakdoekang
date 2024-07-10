@@ -8,7 +8,7 @@ class MyCategoryIcon {
   static const Color defaultBackgroundColor = MyColor.brand;
   static const Color defaultIconColor = MyColor.base5;
 
-  static Widget Iuran({
+  static Widget iuran({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
