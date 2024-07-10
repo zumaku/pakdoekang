@@ -26,7 +26,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Kuliah({
+  static Widget kuliah({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
@@ -44,7 +44,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Makan({
+  static Widget makan({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
@@ -62,7 +62,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Belanja({
+  static Widget belanja({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
@@ -80,7 +80,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Hiburan({
+  static Widget hiburan({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
@@ -98,7 +98,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Utang({
+  static Widget utang({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
@@ -116,7 +116,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Gajian({
+  static Widget gajian({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
@@ -134,7 +134,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Tabungan({
+  static Widget tabungan({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
@@ -152,7 +152,7 @@ class MyCategoryIcon {
     );
   }
 
-  static Widget Hadiah({
+  static Widget hadiah({
     double width = defaultWidth,
     double height = defaultHeight,
     Color backgroundColor = defaultBackgroundColor,
