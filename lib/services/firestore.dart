@@ -63,6 +63,17 @@ class FirestoreService {
       throw Exception('Failed to delete transaction');
     }
   }
+
+  // Function to get transactions for today
+  Stream<List<Transaksi>> getTransactionsForToday() {
+    String today =
+        "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}";
+    return transactions
+        .where('formattedDate', isEqualTo: today)
+        .snapshots()
+        .map((snapshot) =>
+            snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList());
+  }
 }
 
 class Transaksi {
