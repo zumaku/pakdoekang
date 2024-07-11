@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 
-class RegulerBtn extends StatelessWidget {
+class MyRegulerBtn extends StatelessWidget {
   final VoidCallback? onTap;
   final String text;
   final Widget? icon;
@@ -13,9 +13,8 @@ class RegulerBtn extends StatelessWidget {
   final Color borderColor;
   final double borderRadius;
   final EdgeInsets padding;
-  final bool isDisable;
 
-  const RegulerBtn({
+  const MyRegulerBtn({
     Key? key,
     required this.text,
     this.icon,
@@ -26,7 +25,6 @@ class RegulerBtn extends StatelessWidget {
     this.borderColor = Colors.transparent,
     this.borderRadius = 6.0,
     this.padding = const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
-    this.isDisable = false,
   }) : super(key: key);
 
   @override
@@ -74,66 +72,66 @@ class RegulerBtn extends StatelessWidget {
   }
 
   // Static methods for different button styles
-  static RegulerBtn largeBrand({
+  static MyRegulerBtn largeBrand({
     required String text,
     VoidCallback? onTap,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: onTap,
       color: MyColor.brand,
       textType: 1,
       textColor: MyColor.base5,
-      borderColor: Colors.transparent,
+      borderColor: MyColor.brand,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
     );
   }
 
-  static RegulerBtn mediumBrand({
+  static MyRegulerBtn mediumBrand({
     required String text,
     VoidCallback? onTap,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: onTap,
       color: MyColor.brand,
       textType: 2,
       textColor: MyColor.base5,
-      borderColor: Colors.transparent,
+      borderColor: MyColor.brand,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 14.0),
     );
   }
 
-  static RegulerBtn smallBrand({
+  static MyRegulerBtn smallBrand({
     required String text,
     VoidCallback? onTap,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: onTap,
       color: MyColor.brand,
       textType: 3,
       textColor: MyColor.base5,
-      borderColor: Colors.transparent,
+      borderColor: MyColor.brand,
       borderRadius: 6.0,
-      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
     );
   }
 
-  static RegulerBtn largeBase({
+  static MyRegulerBtn largeBase({
     required String text,
     VoidCallback? onTap,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: onTap,
@@ -146,12 +144,12 @@ class RegulerBtn extends StatelessWidget {
     );
   }
 
-  static RegulerBtn mediumBase({
+  static MyRegulerBtn mediumBase({
     required String text,
     VoidCallback? onTap,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: onTap,
@@ -164,12 +162,12 @@ class RegulerBtn extends StatelessWidget {
     );
   }
 
-  static RegulerBtn smallBase({
+  static MyRegulerBtn smallBase({
     required String text,
     VoidCallback? onTap,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: onTap,
@@ -178,58 +176,58 @@ class RegulerBtn extends StatelessWidget {
       textColor: MyColor.base5,
       borderColor: MyColor.base5,
       borderRadius: 6.0,
-      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
     );
   }
 
-  static RegulerBtn disableLarge({
+  static MyRegulerBtn disableLarge({
     required String text,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: null,
       color: MyColor.base1,
       textType: 1,
       textColor: MyColor.base2,
-      borderColor: Colors.transparent,
+      borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
     );
   }
 
-  static RegulerBtn disableMedium({
+  static MyRegulerBtn disableMedium({
     required String text,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: null,
       color: MyColor.base1,
       textType: 2,
       textColor: MyColor.base2,
-      borderColor: Colors.transparent,
+      borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 14.0),
     );
   }
 
-  static RegulerBtn disableSmall({
+  static MyRegulerBtn disableSmall({
     required String text,
     Widget? icon,
   }) {
-    return RegulerBtn(
+    return MyRegulerBtn(
       text: text,
       icon: icon,
       onTap: null,
       color: MyColor.base1,
       textType: 3,
       textColor: MyColor.base2,
-      borderColor: Colors.transparent,
+      borderColor: MyColor.base1,
       borderRadius: 6.0,
-      padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 12.0),
+      padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
     );
   }
 }
