@@ -30,6 +30,22 @@ class FirestoreService {
         snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList());
   }
 
+  // Fungsi untuk ambil transaksi suatu hari
+  Future<List<Transaksi>> getTransaksi(DateTime date) async {
+    QuerySnapshot snapshot = await transactions.get();
+    DateTime today = date;
+    return snapshot.docs
+        .map((doc) => Transaksi.fromFirestore(doc))
+        .where((transaction) => _isSameDay(transaction.tanggal, today))
+        .toList();
+  }
+
+  bool _isSameDay(DateTime date1, DateTime date2) {
+    return date1.year == date2.year &&
+        date1.month == date2.month &&
+        date1.day == date2.day;
+  }
+
   // Function to update a transaction
   Future<void> updateTransaksi(
       String id,
@@ -62,17 +78,6 @@ class FirestoreService {
       print('Error deleting transaction: $e');
       throw Exception('Failed to delete transaction');
     }
-  }
-
-  // Function to get transactions for today
-  Stream<List<Transaksi>> getTransactionsForToday() {
-    String today =
-        "${DateTime.now().year}-${DateTime.now().month}-${DateTime.now().day}";
-    return transactions
-        .where('formattedDate', isEqualTo: today)
-        .snapshots()
-        .map((snapshot) =>
-            snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList());
   }
 }
 
