@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'styles/my_colors.dart';
 
 class MyIcon {
-  static Widget accountorABN({Color color = MyColor.base, double size = 24.0}) {
+  static Widget accountorABN(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'AccountorABN',
       color: color,
@@ -10,7 +11,7 @@ class MyIcon {
     );
   }
 
-  static Widget add({Color color = MyColor.base, double size = 24.0}) {
+  static Widget add({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Add',
       color: color,
@@ -18,7 +19,8 @@ class MyIcon {
     );
   }
 
-  static Widget additionalCard({Color color = MyColor.base, double size = 24.0}) {
+  static Widget additionalCard(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'AdditionalCard',
       color: color,
@@ -26,7 +28,8 @@ class MyIcon {
     );
   }
 
-  static Widget addTransactionAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget addTransactionAlt(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'AddTransactionAlt',
       color: color,
@@ -34,7 +37,8 @@ class MyIcon {
     );
   }
 
-  static Widget addTransactionFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget addTransactionFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'AddTransactionFill',
       color: color,
@@ -42,7 +46,7 @@ class MyIcon {
     );
   }
 
-  static Widget archiveAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget archiveAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArchiveAlt',
       color: color,
@@ -50,7 +54,7 @@ class MyIcon {
     );
   }
 
-  static Widget archiveFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget archiveFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArchiveFill',
       color: color,
@@ -58,7 +62,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowCircleLeft({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowCircleLeft(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowCircleLeft',
       color: color,
@@ -66,7 +71,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowCircleRight({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowCircleRight(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowCircleRight',
       color: color,
@@ -74,7 +80,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowDownAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowDownAlt(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowDownAlt',
       color: color,
@@ -82,7 +89,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowDownBold({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowDownBold(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowDownBold',
       color: color,
@@ -90,7 +98,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowLeftAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowLeftAlt(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowLeftAlt',
       color: color,
@@ -98,7 +107,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowLeftBold({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowLeftBold(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowLeftBold',
       color: color,
@@ -106,7 +116,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowRightAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowRightAlt(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowRightAlt',
       color: color,
@@ -114,7 +125,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowRightBold({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowRightBold(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowRightBold',
       color: color,
@@ -122,7 +134,7 @@ class MyIcon {
     );
   }
 
-  static Widget arrowUpAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowUpAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowUpAlt',
       color: color,
@@ -130,7 +142,8 @@ class MyIcon {
     );
   }
 
-  static Widget arrowUp_bold({Color color = MyColor.base, double size = 24.0}) {
+  static Widget arrowUp_bold(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ArrowUp_bold',
       color: color,
@@ -138,7 +151,7 @@ class MyIcon {
     );
   }
 
-  static Widget bagAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget bagAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'BagAlt',
       color: color,
@@ -146,7 +159,7 @@ class MyIcon {
     );
   }
 
-  static Widget bagAltFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget bagAltFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'BagAltFill',
       color: color,
@@ -154,7 +167,7 @@ class MyIcon {
     );
   }
 
-  static Widget basket({Color color = MyColor.base, double size = 24.0}) {
+  static Widget basket({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Basket',
       color: color,
@@ -162,7 +175,7 @@ class MyIcon {
     );
   }
 
-  static Widget basketLight({Color color = MyColor.base, double size = 24.0}) {
+  static Widget basketLight({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'BasketLight',
       color: color,
@@ -170,7 +183,7 @@ class MyIcon {
     );
   }
 
-  static Widget bin({Color color = MyColor.base, double size = 24.0}) {
+  static Widget bin({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Bin',
       color: color,
@@ -178,7 +191,7 @@ class MyIcon {
     );
   }
 
-  static Widget book({Color color = MyColor.base, double size = 24.0}) {
+  static Widget book({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Book',
       color: color,
@@ -186,7 +199,7 @@ class MyIcon {
     );
   }
 
-  static Widget bookFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget bookFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'BookFill',
       color: color,
@@ -194,7 +207,7 @@ class MyIcon {
     );
   }
 
-  static Widget calendar({Color color = MyColor.base, double size = 24.0}) {
+  static Widget calendar({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Calendar',
       color: color,
@@ -202,7 +215,8 @@ class MyIcon {
     );
   }
 
-  static Widget calendarFilled({Color color = MyColor.base, double size = 24.0}) {
+  static Widget calendarFilled(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'CalendarFilled',
       color: color,
@@ -210,7 +224,7 @@ class MyIcon {
     );
   }
 
-  static Widget calenderAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget calenderAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'CalenderAlt',
       color: color,
@@ -218,7 +232,8 @@ class MyIcon {
     );
   }
 
-  static Widget calenderFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget calenderFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'CalenderFill',
       color: color,
@@ -226,7 +241,7 @@ class MyIcon {
     );
   }
 
-  static Widget cancel({Color color = MyColor.base, double size = 24.0}) {
+  static Widget cancel({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Cancel',
       color: color,
@@ -234,7 +249,7 @@ class MyIcon {
     );
   }
 
-  static Widget card({Color color = MyColor.base, double size = 24.0}) {
+  static Widget card({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Card',
       color: color,
@@ -242,7 +257,7 @@ class MyIcon {
     );
   }
 
-  static Widget cardPayment({Color color = MyColor.base, double size = 24.0}) {
+  static Widget cardPayment({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'CardPayment',
       color: color,
@@ -250,7 +265,7 @@ class MyIcon {
     );
   }
 
-  static Widget caution({Color color = MyColor.base, double size = 24.0}) {
+  static Widget caution({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Caution',
       color: color,
@@ -258,7 +273,7 @@ class MyIcon {
     );
   }
 
-  static Widget cautionSign({Color color = MyColor.base, double size = 24.0}) {
+  static Widget cautionSign({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'CautionSign',
       color: color,
@@ -266,7 +281,7 @@ class MyIcon {
     );
   }
 
-  static Widget check({Color color = MyColor.base, double size = 24.0}) {
+  static Widget check({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Check',
       color: color,
@@ -274,7 +289,7 @@ class MyIcon {
     );
   }
 
-  static Widget chevronDown({Color color = MyColor.base, double size = 24.0}) {
+  static Widget chevronDown({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ChevronDown',
       color: color,
@@ -282,7 +297,7 @@ class MyIcon {
     );
   }
 
-  static Widget chevronLeft({Color color = MyColor.base, double size = 24.0}) {
+  static Widget chevronLeft({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ChevronLeft',
       color: color,
@@ -290,7 +305,8 @@ class MyIcon {
     );
   }
 
-  static Widget chevronRight({Color color = MyColor.base, double size = 24.0}) {
+  static Widget chevronRight(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ChevronRight',
       color: color,
@@ -298,7 +314,7 @@ class MyIcon {
     );
   }
 
-  static Widget chevronUp({Color color = MyColor.base, double size = 24.0}) {
+  static Widget chevronUp({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'ChevronUp',
       color: color,
@@ -306,7 +322,7 @@ class MyIcon {
     );
   }
 
-  static Widget clock({Color color = MyColor.base, double size = 24.0}) {
+  static Widget clock({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Clock',
       color: color,
@@ -314,7 +330,7 @@ class MyIcon {
     );
   }
 
-  static Widget close({Color color = MyColor.base, double size = 24.0}) {
+  static Widget close({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Close',
       color: color,
@@ -322,7 +338,7 @@ class MyIcon {
     );
   }
 
-  static Widget close_ring({Color color = MyColor.base, double size = 24.0}) {
+  static Widget close_ring({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'close_ring',
       color: color,
@@ -330,7 +346,8 @@ class MyIcon {
     );
   }
 
-  static Widget close_ringFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget close_ringFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'close_ringFill',
       color: color,
@@ -338,7 +355,7 @@ class MyIcon {
     );
   }
 
-  static Widget compass({Color color = MyColor.base, double size = 24.0}) {
+  static Widget compass({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Compass',
       color: color,
@@ -346,7 +363,7 @@ class MyIcon {
     );
   }
 
-  static Widget copy({Color color = MyColor.base, double size = 24.0}) {
+  static Widget copy({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Copy',
       color: color,
@@ -354,7 +371,7 @@ class MyIcon {
     );
   }
 
-  static Widget creditcard({Color color = MyColor.base, double size = 24.0}) {
+  static Widget creditcard({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Creditcard',
       color: color,
@@ -362,7 +379,8 @@ class MyIcon {
     );
   }
 
-  static Widget creditcardFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget creditcardFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'CreditcardFill',
       color: color,
@@ -370,7 +388,7 @@ class MyIcon {
     );
   }
 
-  static Widget csv({Color color = MyColor.base, double size = 24.0}) {
+  static Widget csv({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'CSV',
       color: color,
@@ -378,7 +396,7 @@ class MyIcon {
     );
   }
 
-  static Widget darkMode({Color color = MyColor.base, double size = 24.0}) {
+  static Widget darkMode({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'DarkMode',
       color: color,
@@ -386,7 +404,7 @@ class MyIcon {
     );
   }
 
-  static Widget description({Color color = MyColor.base, double size = 24.0}) {
+  static Widget description({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Description',
       color: color,
@@ -394,7 +412,7 @@ class MyIcon {
     );
   }
 
-  static Widget downArrow({Color color = MyColor.base, double size = 24.0}) {
+  static Widget downArrow({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'DownArrow',
       color: color,
@@ -402,7 +420,7 @@ class MyIcon {
     );
   }
 
-  static Widget edit({Color color = MyColor.base, double size = 24.0}) {
+  static Widget edit({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Edit',
       color: color,
@@ -410,7 +428,7 @@ class MyIcon {
     );
   }
 
-  static Widget editBold({Color color = MyColor.base, double size = 24.0}) {
+  static Widget editBold({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'EditBold',
       color: color,
@@ -418,7 +436,7 @@ class MyIcon {
     );
   }
 
-  static Widget editFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget editFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'EditFill',
       color: color,
@@ -426,7 +444,7 @@ class MyIcon {
     );
   }
 
-  static Widget email({Color color = MyColor.base, double size = 24.0}) {
+  static Widget email({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Email',
       color: color,
@@ -434,7 +452,7 @@ class MyIcon {
     );
   }
 
-  static Widget excel({Color color = MyColor.base, double size = 24.0}) {
+  static Widget excel({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Excel',
       color: color,
@@ -442,7 +460,7 @@ class MyIcon {
     );
   }
 
-  static Widget filter({Color color = MyColor.base, double size = 24.0}) {
+  static Widget filter({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Filter',
       color: color,
@@ -450,7 +468,8 @@ class MyIcon {
     );
   }
 
-  static Widget financialInstitution({Color color = MyColor.base, double size = 24.0}) {
+  static Widget financialInstitution(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'FinancialInstitution',
       color: color,
@@ -458,7 +477,7 @@ class MyIcon {
     );
   }
 
-  static Widget gamepad({Color color = MyColor.base, double size = 24.0}) {
+  static Widget gamepad({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Gamepad',
       color: color,
@@ -466,7 +485,8 @@ class MyIcon {
     );
   }
 
-  static Widget gamepadLight({Color color = MyColor.base, double size = 24.0}) {
+  static Widget gamepadLight(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'GamepadLight',
       color: color,
@@ -474,7 +494,7 @@ class MyIcon {
     );
   }
 
-  static Widget giftAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget giftAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'giftAlt',
       color: color,
@@ -482,7 +502,8 @@ class MyIcon {
     );
   }
 
-  static Widget giftAlt_fill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget giftAlt_fill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'giftAlt_fill',
       color: color,
@@ -490,7 +511,7 @@ class MyIcon {
     );
   }
 
-  static Widget heart({Color color = MyColor.base, double size = 24.0}) {
+  static Widget heart({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Heart',
       color: color,
@@ -498,7 +519,7 @@ class MyIcon {
     );
   }
 
-  static Widget hide({Color color = MyColor.base, double size = 24.0}) {
+  static Widget hide({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Hide',
       color: color,
@@ -506,7 +527,7 @@ class MyIcon {
     );
   }
 
-  static Widget home({Color color = MyColor.base, double size = 24.0}) {
+  static Widget home({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Home',
       color: color,
@@ -514,7 +535,7 @@ class MyIcon {
     );
   }
 
-  static Widget img({Color color = MyColor.base, double size = 24.0}) {
+  static Widget img({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'IMG',
       color: color,
@@ -522,7 +543,7 @@ class MyIcon {
     );
   }
 
-  static Widget inbox({Color color = MyColor.base, double size = 24.0}) {
+  static Widget inbox({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Inbox',
       color: color,
@@ -530,7 +551,7 @@ class MyIcon {
     );
   }
 
-  static Widget information({Color color = MyColor.base, double size = 24.0}) {
+  static Widget information({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Information',
       color: color,
@@ -538,7 +559,8 @@ class MyIcon {
     );
   }
 
-  static Widget informationSign({Color color = MyColor.base, double size = 24.0}) {
+  static Widget informationSign(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'InformationSign',
       color: color,
@@ -546,7 +568,7 @@ class MyIcon {
     );
   }
 
-  static Widget interest({Color color = MyColor.base, double size = 24.0}) {
+  static Widget interest({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Interest',
       color: color,
@@ -554,7 +576,7 @@ class MyIcon {
     );
   }
 
-  static Widget iphone({Color color = MyColor.base, double size = 24.0}) {
+  static Widget iphone({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Iphone',
       color: color,
@@ -562,7 +584,7 @@ class MyIcon {
     );
   }
 
-  static Widget leftArrow({Color color = MyColor.base, double size = 24.0}) {
+  static Widget leftArrow({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'LeftArrow',
       color: color,
@@ -570,7 +592,7 @@ class MyIcon {
     );
   }
 
-  static Widget lightMode({Color color = MyColor.base, double size = 24.0}) {
+  static Widget lightMode({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'LightMode',
       color: color,
@@ -578,7 +600,7 @@ class MyIcon {
     );
   }
 
-  static Widget lockclosed({Color color = MyColor.base, double size = 24.0}) {
+  static Widget lockclosed({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Lockclosed',
       color: color,
@@ -586,7 +608,7 @@ class MyIcon {
     );
   }
 
-  static Widget lockOpen({Color color = MyColor.base, double size = 24.0}) {
+  static Widget lockOpen({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'LockOpen',
       color: color,
@@ -594,7 +616,7 @@ class MyIcon {
     );
   }
 
-  static Widget loudspeaker({Color color = MyColor.base, double size = 24.0}) {
+  static Widget loudspeaker({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Loudspeaker',
       color: color,
@@ -602,7 +624,7 @@ class MyIcon {
     );
   }
 
-  static Widget mappin({Color color = MyColor.base, double size = 24.0}) {
+  static Widget mappin({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Mappin',
       color: color,
@@ -610,7 +632,7 @@ class MyIcon {
     );
   }
 
-  static Widget menu({Color color = MyColor.base, double size = 24.0}) {
+  static Widget menu({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Menu',
       color: color,
@@ -618,7 +640,7 @@ class MyIcon {
     );
   }
 
-  static Widget message({Color color = MyColor.base, double size = 24.0}) {
+  static Widget message({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Message',
       color: color,
@@ -626,7 +648,7 @@ class MyIcon {
     );
   }
 
-  static Widget minus({Color color = MyColor.base, double size = 24.0}) {
+  static Widget minus({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Minus',
       color: color,
@@ -634,7 +656,7 @@ class MyIcon {
     );
   }
 
-  static Widget money({Color color = MyColor.base, double size = 24.0}) {
+  static Widget money({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Money',
       color: color,
@@ -642,7 +664,7 @@ class MyIcon {
     );
   }
 
-  static Widget moneyFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget moneyFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'MoneyFill',
       color: color,
@@ -650,7 +672,7 @@ class MyIcon {
     );
   }
 
-  static Widget more({Color color = MyColor.base, double size = 24.0}) {
+  static Widget more({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'More',
       color: color,
@@ -658,7 +680,7 @@ class MyIcon {
     );
   }
 
-  static Widget moreBold({Color color = MyColor.base, double size = 24.0}) {
+  static Widget moreBold({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'MoreBold',
       color: color,
@@ -666,7 +688,7 @@ class MyIcon {
     );
   }
 
-  static Widget mortarboard({Color color = MyColor.base, double size = 24.0}) {
+  static Widget mortarboard({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Mortarboard',
       color: color,
@@ -674,7 +696,8 @@ class MyIcon {
     );
   }
 
-  static Widget mortarboardFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget mortarboardFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'MortarboardFill',
       color: color,
@@ -682,7 +705,7 @@ class MyIcon {
     );
   }
 
-  static Widget number({Color color = MyColor.base, double size = 24.0}) {
+  static Widget number({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Number',
       color: color,
@@ -690,7 +713,7 @@ class MyIcon {
     );
   }
 
-  static Widget output({Color color = MyColor.base, double size = 24.0}) {
+  static Widget output({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'output',
       color: color,
@@ -698,7 +721,7 @@ class MyIcon {
     );
   }
 
-  static Widget output2({Color color = MyColor.base, double size = 24.0}) {
+  static Widget output2({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'output2',
       color: color,
@@ -706,7 +729,7 @@ class MyIcon {
     );
   }
 
-  static Widget paper({Color color = MyColor.base, double size = 24.0}) {
+  static Widget paper({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Paper',
       color: color,
@@ -714,7 +737,7 @@ class MyIcon {
     );
   }
 
-  static Widget paperclip({Color color = MyColor.base, double size = 24.0}) {
+  static Widget paperclip({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Paperclip',
       color: color,
@@ -722,7 +745,7 @@ class MyIcon {
     );
   }
 
-  static Widget paperFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget paperFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'PaperFill',
       color: color,
@@ -730,7 +753,7 @@ class MyIcon {
     );
   }
 
-  static Widget payment({Color color = MyColor.base, double size = 24.0}) {
+  static Widget payment({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Payment',
       color: color,
@@ -738,7 +761,7 @@ class MyIcon {
     );
   }
 
-  static Widget pdf({Color color = MyColor.base, double size = 24.0}) {
+  static Widget pdf({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'PDF',
       color: color,
@@ -746,7 +769,7 @@ class MyIcon {
     );
   }
 
-  static Widget phone({Color color = MyColor.base, double size = 24.0}) {
+  static Widget phone({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Phone',
       color: color,
@@ -754,7 +777,7 @@ class MyIcon {
     );
   }
 
-  static Widget pieChartAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget pieChartAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'PieChartAlt',
       color: color,
@@ -762,7 +785,8 @@ class MyIcon {
     );
   }
 
-  static Widget pieChartFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget pieChartFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'PieChartFill',
       color: color,
@@ -770,7 +794,7 @@ class MyIcon {
     );
   }
 
-  static Widget pIN({Color color = MyColor.base, double size = 24.0}) {
+  static Widget pIN({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'PIN',
       color: color,
@@ -778,7 +802,7 @@ class MyIcon {
     );
   }
 
-  static Widget pizza({Color color = MyColor.base, double size = 24.0}) {
+  static Widget pizza({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Pizza',
       color: color,
@@ -786,7 +810,7 @@ class MyIcon {
     );
   }
 
-  static Widget pizza_light({Color color = MyColor.base, double size = 24.0}) {
+  static Widget pizza_light({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Pizza_light',
       color: color,
@@ -794,7 +818,7 @@ class MyIcon {
     );
   }
 
-  static Widget placeholder({Color color = MyColor.base, double size = 24.0}) {
+  static Widget placeholder({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Placeholder',
       color: color,
@@ -802,7 +826,8 @@ class MyIcon {
     );
   }
 
-  static Widget placeholderFilled({Color color = MyColor.base, double size = 24.0}) {
+  static Widget placeholderFilled(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'PlaceholderFilled',
       color: color,
@@ -810,7 +835,7 @@ class MyIcon {
     );
   }
 
-  static Widget plus({Color color = MyColor.base, double size = 24.0}) {
+  static Widget plus({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Plus',
       color: color,
@@ -818,7 +843,7 @@ class MyIcon {
     );
   }
 
-  static Widget power({Color color = MyColor.base, double size = 24.0}) {
+  static Widget power({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Power',
       color: color,
@@ -826,7 +851,7 @@ class MyIcon {
     );
   }
 
-  static Widget print({Color color = MyColor.base, double size = 24.0}) {
+  static Widget print({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Print',
       color: color,
@@ -834,7 +859,7 @@ class MyIcon {
     );
   }
 
-  static Widget question({Color color = MyColor.base, double size = 24.0}) {
+  static Widget question({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Question',
       color: color,
@@ -842,7 +867,7 @@ class MyIcon {
     );
   }
 
-  static Widget reciept({Color color = MyColor.base, double size = 24.0}) {
+  static Widget reciept({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Reciept',
       color: color,
@@ -850,7 +875,7 @@ class MyIcon {
     );
   }
 
-  static Widget reorder({Color color = MyColor.base, double size = 24.0}) {
+  static Widget reorder({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Reorder',
       color: color,
@@ -858,7 +883,7 @@ class MyIcon {
     );
   }
 
-  static Widget reply({Color color = MyColor.base, double size = 24.0}) {
+  static Widget reply({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Reply',
       color: color,
@@ -866,7 +891,7 @@ class MyIcon {
     );
   }
 
-  static Widget rightArrow({Color color = MyColor.base, double size = 24.0}) {
+  static Widget rightArrow({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'RightArrow',
       color: color,
@@ -874,7 +899,7 @@ class MyIcon {
     );
   }
 
-  static Widget save({Color color = MyColor.base, double size = 24.0}) {
+  static Widget save({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Save',
       color: color,
@@ -882,7 +907,7 @@ class MyIcon {
     );
   }
 
-  static Widget saveFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget saveFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'SaveFill',
       color: color,
@@ -890,7 +915,7 @@ class MyIcon {
     );
   }
 
-  static Widget search({Color color = MyColor.base, double size = 24.0}) {
+  static Widget search({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Search',
       color: color,
@@ -898,7 +923,7 @@ class MyIcon {
     );
   }
 
-  static Widget searchAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget searchAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'SearchAlt',
       color: color,
@@ -906,7 +931,7 @@ class MyIcon {
     );
   }
 
-  static Widget searchFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget searchFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'SearchFill',
       color: color,
@@ -914,7 +939,7 @@ class MyIcon {
     );
   }
 
-  static Widget send({Color color = MyColor.base, double size = 24.0}) {
+  static Widget send({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Send',
       color: color,
@@ -922,7 +947,7 @@ class MyIcon {
     );
   }
 
-  static Widget send_hor({Color color = MyColor.base, double size = 24.0}) {
+  static Widget send_hor({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Send_hor',
       color: color,
@@ -930,7 +955,8 @@ class MyIcon {
     );
   }
 
-  static Widget send_horFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget send_horFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Send_horFill',
       color: color,
@@ -938,7 +964,7 @@ class MyIcon {
     );
   }
 
-  static Widget settings({Color color = MyColor.base, double size = 24.0}) {
+  static Widget settings({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Settings',
       color: color,
@@ -946,7 +972,7 @@ class MyIcon {
     );
   }
 
-  static Widget share({Color color = MyColor.base, double size = 24.0}) {
+  static Widget share({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Share',
       color: color,
@@ -954,7 +980,7 @@ class MyIcon {
     );
   }
 
-  static Widget shield({Color color = MyColor.base, double size = 24.0}) {
+  static Widget shield({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Shield',
       color: color,
@@ -962,7 +988,7 @@ class MyIcon {
     );
   }
 
-  static Widget sort({Color color = MyColor.base, double size = 24.0}) {
+  static Widget sort({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Sort',
       color: color,
@@ -970,7 +996,7 @@ class MyIcon {
     );
   }
 
-  static Widget sortSmall({Color color = MyColor.base, double size = 24.0}) {
+  static Widget sortSmall({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'SortSmall',
       color: color,
@@ -978,7 +1004,7 @@ class MyIcon {
     );
   }
 
-  static Widget star({Color color = MyColor.base, double size = 24.0}) {
+  static Widget star({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Star',
       color: color,
@@ -986,7 +1012,7 @@ class MyIcon {
     );
   }
 
-  static Widget stop({Color color = MyColor.base, double size = 24.0}) {
+  static Widget stop({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Stop',
       color: color,
@@ -994,7 +1020,7 @@ class MyIcon {
     );
   }
 
-  static Widget thumbsdown({Color color = MyColor.base, double size = 24.0}) {
+  static Widget thumbsdown({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Thumbsdown',
       color: color,
@@ -1002,7 +1028,7 @@ class MyIcon {
     );
   }
 
-  static Widget thumbsup({Color color = MyColor.base, double size = 24.0}) {
+  static Widget thumbsup({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Thumbsup',
       color: color,
@@ -1010,7 +1036,7 @@ class MyIcon {
     );
   }
 
-  static Widget ticketAlt({Color color = MyColor.base, double size = 24.0}) {
+  static Widget ticketAlt({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'TicketAlt',
       color: color,
@@ -1018,7 +1044,8 @@ class MyIcon {
     );
   }
 
-  static Widget ticketAltFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget ticketAltFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'TicketAltFill',
       color: color,
@@ -1026,7 +1053,7 @@ class MyIcon {
     );
   }
 
-  static Widget toggle({Color color = MyColor.base, double size = 24.0}) {
+  static Widget toggle({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Toggle',
       color: color,
@@ -1034,7 +1061,7 @@ class MyIcon {
     );
   }
 
-  static Widget transfer({Color color = MyColor.base, double size = 24.0}) {
+  static Widget transfer({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Transfer',
       color: color,
@@ -1042,7 +1069,8 @@ class MyIcon {
     );
   }
 
-  static Widget transferInitials({Color color = MyColor.base, double size = 24.0}) {
+  static Widget transferInitials(
+      {Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'TransferInitials',
       color: color,
@@ -1050,7 +1078,7 @@ class MyIcon {
     );
   }
 
-  static Widget trash({Color color = MyColor.base, double size = 24.0}) {
+  static Widget trash({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Trash',
       color: color,
@@ -1058,7 +1086,7 @@ class MyIcon {
     );
   }
 
-  static Widget trashFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget trashFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'TrashFill',
       color: color,
@@ -1066,7 +1094,7 @@ class MyIcon {
     );
   }
 
-  static Widget unhide({Color color = MyColor.base, double size = 24.0}) {
+  static Widget unhide({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Unhide',
       color: color,
@@ -1074,7 +1102,7 @@ class MyIcon {
     );
   }
 
-  static Widget user({Color color = MyColor.base, double size = 24.0}) {
+  static Widget user({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'User',
       color: color,
@@ -1082,7 +1110,7 @@ class MyIcon {
     );
   }
 
-  static Widget wallet({Color color = MyColor.base, double size = 24.0}) {
+  static Widget wallet({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Wallet',
       color: color,
@@ -1090,7 +1118,7 @@ class MyIcon {
     );
   }
 
-  static Widget walletFill({Color color = MyColor.base, double size = 24.0}) {
+  static Widget walletFill({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'WalletFill',
       color: color,
@@ -1098,7 +1126,7 @@ class MyIcon {
     );
   }
 
-  static Widget withdrawal({Color color = MyColor.base, double size = 24.0}) {
+  static Widget withdrawal({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'Withdrawal',
       color: color,
@@ -1106,7 +1134,7 @@ class MyIcon {
     );
   }
 
-  static Widget world({Color color = MyColor.base, double size = 24.0}) {
+  static Widget world({Color color = MyColor.base5, double size = 24.0}) {
     return CustomIcon(
       iconName: 'World',
       color: color,
@@ -1124,7 +1152,7 @@ class CustomIcon extends StatelessWidget {
     Key? key,
     required this.iconName,
     this.size = 24.0,
-    this.color = MyColor.base,
+    this.color = MyColor.base5,
   }) : super(key: key);
 
   @override
