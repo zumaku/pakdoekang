@@ -14,6 +14,7 @@ class ActivityCard extends StatelessWidget {
   final String category;
   final DateTime date;
   final bool isSpend;
+  final String notes;
 
   ActivityCard({
     super.key,
@@ -22,6 +23,7 @@ class ActivityCard extends StatelessWidget {
     required this.category,
     required this.date,
     required this.isSpend,
+    required this.notes,
   });
 
   @override
@@ -40,6 +42,7 @@ class ActivityCard extends StatelessWidget {
                     amount: amount,
                     category: category,
                     date: date,
+                    notes: notes,
                     isSpend: isSpend);
               });
         },
@@ -75,7 +78,7 @@ class ActivityCard extends StatelessWidget {
                       // MyText.labelTwo("${date.day}-${date.month}-${date.year}",
                       MyText.labelTwo(DateConverter.convert(date),
                           color: MyColor.base4),
-                      isSpend ? MyIcon.arrowUp_bold() : MyIcon.arrowDownBold(),
+                      isSpend ? MyIcon.rupiahUpFill() : MyIcon.rupiahDownFill(),
                     ],
                   ),
                 ],
@@ -109,8 +112,7 @@ class ActivityCard extends StatelessWidget {
       case 'hadiah':
         return MyCategoryIcon.hadiah();
       default:
-        return MyCategoryIcon
-            .makan(); // fallback icon if category is not recognized
+        return MyCategoryIcon.makan();
     }
   }
 }

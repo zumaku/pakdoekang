@@ -1141,6 +1141,57 @@ class MyIcon {
       size: size,
     );
   }
+
+  static Widget rupiahUpFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
+    return CustomIcon(
+      iconName: 'rupiahUp_fill',
+      color: color,
+      size: size,
+    );
+  }
+
+  static Widget rupiahUpAlt({Color color = MyColor.base5, double size = 24.0}) {
+    return CustomIcon(
+      iconName: 'rupiahUp_alt',
+      color: color,
+      size: size,
+    );
+  }
+
+  static Widget rupiahDownFill(
+      {Color color = MyColor.base5, double size = 24.0}) {
+    return CustomIcon(
+      iconName: 'rupiahDown_fill',
+      color: color,
+      size: size,
+    );
+  }
+
+  static Widget rupiahDownAlt(
+      {Color color = MyColor.base5, double size = 24.0}) {
+    return CustomIcon(
+      iconName: 'rupiah_alt',
+      color: color,
+      size: size,
+    );
+  }
+
+  static Widget rupiahFill({Color color = MyColor.base5, double size = 24.0}) {
+    return CustomIcon(
+      iconName: 'rupiahDown_fill',
+      color: color,
+      size: size,
+    );
+  }
+
+  static Widget rupiahAlt({Color color = MyColor.base5, double size = 24.0}) {
+    return CustomIcon(
+      iconName: 'rupiah_alt',
+      color: color,
+      size: size,
+    );
+  }
 }
 
 class CustomIcon extends StatelessWidget {

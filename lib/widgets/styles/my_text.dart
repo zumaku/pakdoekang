@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 
 class MyText {
-  static Widget headingOne(String text, {Color color = MyColor.base5}) {
+  static Widget headingOne(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 93,
@@ -14,9 +15,10 @@ class MyText {
     );
   }
 
-  static Widget headingTwo(String text, {Color color = MyColor.base5}) {
+  static Widget headingTwo(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 58,
@@ -26,9 +28,10 @@ class MyText {
     );
   }
 
-  static Widget headingThree(String text, {Color color = MyColor.base5}) {
+  static Widget headingThree(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 46,
@@ -38,9 +41,10 @@ class MyText {
     );
   }
 
-  static Widget headingFour(String text, {Color color = MyColor.base5}) {
+  static Widget headingFour(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 30,
@@ -50,9 +54,10 @@ class MyText {
     );
   }
 
-  static Widget headingFive(String text, {Color color = MyColor.base5}) {
+  static Widget headingFive(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 23,
@@ -62,9 +67,10 @@ class MyText {
     );
   }
 
-  static Widget headingSix(String text, {Color color = MyColor.base5}) {
+  static Widget headingSix(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 19,
@@ -74,9 +80,10 @@ class MyText {
     );
   }
 
-  static Widget subTitleOne(String text, {Color color = MyColor.base5}) {
+  static Widget subTitleOne(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 15,
@@ -86,9 +93,10 @@ class MyText {
     );
   }
 
-  static Widget subTitleTwo(String text, {Color color = MyColor.base5}) {
+  static Widget subTitleTwo(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'WorkSans',
         fontSize: 13,
@@ -98,9 +106,10 @@ class MyText {
     );
   }
 
-  static Widget paragraphOne(String text, {Color color = MyColor.base5}) {
+  static Widget paragraphOne(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'Montserrat',
         fontSize: 15,
@@ -110,9 +119,10 @@ class MyText {
     );
   }
 
-  static Widget paragraphTwo(String text, {Color color = MyColor.base5}) {
+  static Widget paragraphTwo(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'Montserrat',
         fontSize: 13,
@@ -122,9 +132,10 @@ class MyText {
     );
   }
 
-  static Widget buttonOne(String text, {Color color = MyColor.base5}) {
+  static Widget buttonOne(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'Montserrat',
         fontSize: 15,
@@ -135,9 +146,10 @@ class MyText {
     );
   }
 
-  static Widget buttonTwo(String text, {Color color = MyColor.base5}) {
+  static Widget buttonTwo(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'Montserrat',
         fontSize: 13,
@@ -148,9 +160,10 @@ class MyText {
     );
   }
 
-  static Widget buttonThree(String text, {Color color = MyColor.base5}) {
+  static Widget buttonThree(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'Montserrat',
         fontSize: 12,
@@ -161,9 +174,10 @@ class MyText {
     );
   }
 
-  static Widget labelOne(String text, {Color color = MyColor.base5}) {
+  static Widget labelOne(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'Montserrat',
         fontSize: 15,
@@ -173,9 +187,10 @@ class MyText {
     );
   }
 
-  static Widget labelTwo(String text, {Color color = MyColor.base5}) {
+  static Widget labelTwo(String text, {Color color = MyColor.base5, TextAlign textAlign = TextAlign.center}) {
     return Text(
       text,
+      textAlign: textAlign,
       style: TextStyle(
         fontFamily: 'Montserrat',
         fontSize: 12,

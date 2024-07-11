@@ -45,6 +45,7 @@ class TodayPage extends StatelessWidget {
                         date: transaction.tanggal,
                         category: transaction.kategori,
                         isSpend: transaction.isPengeluaran,
+                        notes: transaction.catatan,
                       );
                     }).toList(),
                   );
