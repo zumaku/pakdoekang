@@ -20,10 +20,8 @@ class TodayPage extends StatelessWidget {
               SizedBox(height: 26),
               MyText.headingSix("Aktifitas"),
               SizedBox(height: 13),
-
-              // StreamBuilder for displaying activities
-              StreamBuilder<List<Transaksi>>(
-                stream: _firestoreService.getAllTransaksi(),
+              FutureBuilder<List<Transaksi>>(
+                future: _firestoreService.getTransaksi(DateTime.now()),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
