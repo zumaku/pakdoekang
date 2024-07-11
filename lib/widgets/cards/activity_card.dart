@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/controllers/currency_format.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
+import 'package:pakdoekang/widgets/cards/detail_actifity_card.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -31,8 +32,16 @@ class ActivityCard extends StatelessWidget {
 
     return GestureDetector(
         onTap: () {
-          print('Container clicked!');
-          // Perform your action here
+          showModalBottomSheet(
+              context: context,
+              builder: (BuildContext context) {
+                return DetailActivityCard(
+                    activity: activity,
+                    amount: amount,
+                    category: category,
+                    date: date,
+                    isSpend: isSpend);
+              });
         },
         child: Column(
           children: [
