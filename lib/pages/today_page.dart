@@ -18,7 +18,7 @@ class TodayPage extends StatelessWidget {
             children: [
               DailySpendCard(),
               SizedBox(height: 26),
-              MyText.headingSix("Aktifitas"),
+              MyText.headingSix("Aktifitas", textAlign: TextAlign.start),
               SizedBox(height: 13),
               FutureBuilder<List<Transaksi>>(
                 future: _firestoreService.getTransaksi(DateTime.now()),

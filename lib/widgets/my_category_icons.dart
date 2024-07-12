@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pakdoekang/widgets/styles/my_shadow.dart';
 import 'styles/my_colors.dart';
 import 'my_icon.dart';
 

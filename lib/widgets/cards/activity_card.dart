@@ -30,7 +30,7 @@ class ActivityCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // Logic perubahan text card
     String displayText =
-        activity.length > 30 ? "${activity.substring(0, 30)}..." : activity;
+        activity.length > 28 ? "${activity.substring(0, 28)}..." : activity;
 
     return GestureDetector(
         onTap: () {
@@ -72,22 +72,22 @@ class ActivityCard extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         children: [
                           Container(
-                            width: 80,
-                            height: 40,
-                            // color: Colors.red,
+                            width: 56,
+                            height: 32,
+                            // color: Colors.blue,
                           ),
                           ...categories.asMap().entries.map((entry) {
                             int idx = entry.key;
                             String category = entry.value;
 
-                            if (categories.length > 3 && idx == 0) {
+                            if (categories.length > 2 && idx == 0) {
                               // Show special icon if there are more than 3 categories
                               return Positioned(
                                 right: idx * 23.0,
                                 child:
-                                    getCategoryIcon("${categories.length - 2}"),
+                                    getCategoryIcon("${categories.length - 1}"),
                               );
-                            } else if (idx < 3) {
+                            } else if (idx < 2) {
                               return Positioned(
                                 right: idx * 23.0,
                                 child: getCategoryIcon(category),

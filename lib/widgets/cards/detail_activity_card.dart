@@ -79,7 +79,7 @@ class DetailActivityCard extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 14),
-                  MyText.headingSix(activity),
+                  MyText.headingSix(activity, textAlign: TextAlign.start),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
