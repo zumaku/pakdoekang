@@ -95,37 +95,39 @@ class DetailActivityCard extends StatelessWidget {
             SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: categories.map((category) {
-                    return Row(
-                      children: [
-                        SizedBox(width: 16),
-                        DetailActivityCard.getIconButton(category),
-                      ],
-                    );
-                  }).toList(),
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(width: 16),
+                      ...categories.map((category) {
+                        return Row(
+                          children: [
+                            DetailActivityCard.getIconButton(category),
+                            SizedBox(width: 16),
+                          ],
+                        );
+                      }).toList(),
 
-                  // children: [
-                  //   SizedBox(width: 16),
-                  //   MyCategoryButton.kuliah(isSelected: true),
-                  //   SizedBox(width: 10),
-                  //   MyCategoryButton.tabungan(isSelected: false),
-                  //   SizedBox(width: 10),
-                  //   MyCategoryButton.belanja(isSelected: false),
-                  //   SizedBox(width: 10),
-                  //   MyCategoryButton.makan(isSelected: false),
-                  //   SizedBox(width: 10),
-                  //   MyCategoryButton.hadiah(isSelected: false),
-                  //   SizedBox(width: 16),
-                  //   MyCategoryButton.belanja(isSelected: false),
-                  //   SizedBox(width: 10),
-                  //   MyCategoryButton.makan(isSelected: false),
-                  //   SizedBox(width: 10),
-                  //   MyCategoryButton.hadiah(isSelected: false),
-                  //   SizedBox(width: 16),
-                  // ],
-                )),
+                      // children: [
+                      //   SizedBox(width: 16),
+                      //   MyCategoryButton.kuliah(isSelected: true),
+                      //   SizedBox(width: 10),
+                      //   MyCategoryButton.tabungan(isSelected: false),
+                      //   SizedBox(width: 10),
+                      //   MyCategoryButton.belanja(isSelected: false),
+                      //   SizedBox(width: 10),
+                      //   MyCategoryButton.makan(isSelected: false),
+                      //   SizedBox(width: 10),
+                      //   MyCategoryButton.hadiah(isSelected: false),
+                      //   SizedBox(width: 16),
+                      //   MyCategoryButton.belanja(isSelected: false),
+                      //   SizedBox(width: 10),
+                      //   MyCategoryButton.makan(isSelected: false),
+                      //   SizedBox(width: 10),
+                      //   MyCategoryButton.hadiah(isSelected: false),
+                      //   SizedBox(width: 16),
+                      // ],
+                    ])),
             SizedBox(height: 14),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: padding),
