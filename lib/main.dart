@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/pages/archive_page.dart';
-import 'package:pakdoekang/pages/overview_page.dart';
+import 'package:pakdoekang/pages/insight_page.dart';
+import 'package:pakdoekang/pages/search_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/widgets/my_bottom_navbar.dart';
 import 'package:pakdoekang/widgets/my_app_bar.dart';
@@ -34,8 +35,10 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     final List<Widget> pages = [
       TodayPage(),
+      Container(), // container kosong untuk pengcukup index
+      Container(), // container kosong untuk pengcukup index
       ArchivePage(),
-      OverviewPage(),
+      InsightPage(),
     ];
 
     return MaterialApp(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
+import 'package:pakdoekang/widgets/styles/my_shadow.dart';
 
 class MyBottomNavbar extends StatelessWidget {
   final int selectedIndex;
@@ -20,6 +21,7 @@ class MyBottomNavbar extends StatelessWidget {
           topLeft: Radius.circular(15.0),
           topRight: Radius.circular(15.0),
         ),
+        boxShadow: [MyShadow.shadowTwo()],
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
@@ -31,7 +33,43 @@ class MyBottomNavbar extends StatelessWidget {
           ),
           child: BottomNavigationBar(
             currentIndex: selectedIndex,
-            onTap: onItemTapped,
+            onTap: (index) {
+              switch (index) {
+                case 0:
+                case 3:
+                case 4:
+                  onItemTapped(index);
+                  break;
+                case 1:
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: 200,
+                        color: Colors.white,
+                        child: Center(
+                          child: Text('Search Bottom Sheet'),
+                        ),
+                      );
+                    },
+                  );
+                  break;
+                case 2:
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: 200,
+                        color: Colors.white,
+                        child: Center(
+                          child: Text('ADD Bottom Sheet'),
+                        ),
+                      );
+                    },
+                  );
+                  break;
+              }
+            },
             backgroundColor: Colors.white,
             selectedItemColor: MyColor.brand,
             unselectedItemColor: MyColor.base2,
@@ -48,27 +86,31 @@ class MyBottomNavbar extends StatelessWidget {
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: selectedIndex == 0
-                    ? MyIcon.calenderFill(
-                        color:
-                            selectedIndex == 0 ? MyColor.brand : MyColor.base)
-                    : MyIcon.calenderAlt(),
+                    ? MyIcon.calenderFill(color: MyColor.brand)
+                    : MyIcon.calenderAlt(color: MyColor.base),
                 label: 'Hari Ini',
               ),
               BottomNavigationBarItem(
                 icon: selectedIndex == 1
-                    ? MyIcon.archiveFill(
-                        color:
-                            selectedIndex == 1 ? MyColor.brand : MyColor.base)
-                    : MyIcon.archiveAlt(),
+                    ? MyIcon.searchFill(color: MyColor.brand)
+                    : MyIcon.searchAlt(color: MyColor.base),
+                label: 'Cari',
+              ),
+              BottomNavigationBarItem(
+                icon: MyIcon.addTransactionFill(color: MyColor.base),
+                label: 'Tambah',
+              ),
+              BottomNavigationBarItem(
+                icon: selectedIndex - 1 == 2
+                    ? MyIcon.archiveFill(color: MyColor.brand)
+                    : MyIcon.archiveAlt(color: MyColor.base),
                 label: 'Arsip',
               ),
               BottomNavigationBarItem(
-                icon: selectedIndex == 2
-                    ? MyIcon.pieChartFill(
-                        color:
-                            selectedIndex == 2 ? MyColor.brand : MyColor.base)
-                    : MyIcon.pieChartAlt(),
-                label: 'Overview',
+                icon: selectedIndex - 1 == 3
+                    ? MyIcon.pieChartFill(color: MyColor.brand)
+                    : MyIcon.pieChartAlt(color: MyColor.base),
+                label: 'Masukan',
               ),
             ],
           ),

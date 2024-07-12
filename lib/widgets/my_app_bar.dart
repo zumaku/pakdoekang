@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
-import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -38,13 +37,6 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             title: MyText.headingFive(pageName),
             elevation: 0,
             actions: <Widget>[
-              IconButton(
-                icon: MyIcon.searchAlt(),
-                onPressed: () {
-                  // Aksi saat tombol pencarian ditekan
-                  // Misalnya, buka layar pencarian
-                },
-              ),
               IconButton(
                 padding: EdgeInsets.all(10),
                 icon: CircleAvatar(

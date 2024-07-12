@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/cards/activity_card.dart';
 import 'package:pakdoekang/widgets/cards/daily_spend_card.dart';
+import 'package:pakdoekang/widgets/cards/detail_activity_card.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:pakdoekang/services/firestore.dart';
 
@@ -54,6 +55,45 @@ class TodayPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  static Widget addActivity() {
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Text(
+            'Add Activity',
+            style: TextStyle(
+              fontSize: 24.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          SizedBox(height: 16.0),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Activity Name',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(height: 16.0),
+          TextField(
+            decoration: InputDecoration(
+              labelText: 'Description',
+              border: OutlineInputBorder(),
+            ),
+          ),
+          SizedBox(height: 16.0),
+          ElevatedButton(
+            onPressed: () {
+              // Handle the save action here
+            },
+            child: Text('Save'),
+          ),
+        ],
       ),
     );
   }
