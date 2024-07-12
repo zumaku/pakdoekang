@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/buttons/category_btn.dart';
-import 'package:pakdoekang/widgets/styles/my_text.dart';
 
 class CategorySelector extends StatelessWidget {
   final List<String> selectedCategories;
   final void Function(String) onCategoryTap;
 
-  CategorySelector({required this.selectedCategories, required this.onCategoryTap});
+  CategorySelector(
+      {required this.selectedCategories, required this.onCategoryTap});
 
   @override
   Widget build(BuildContext context) {

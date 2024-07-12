@@ -34,10 +34,17 @@ class FirestoreService {
   Future<List<Transaksi>> getTransaksi(DateTime date) async {
     QuerySnapshot snapshot = await transactions.get();
     DateTime today = date;
-    return snapshot.docs
+
+    // Filter transactions for the same day
+    List<Transaksi> filteredTransactions = snapshot.docs
         .map((doc) => Transaksi.fromFirestore(doc))
         .where((transaction) => _isSameDay(transaction.tanggal, today))
         .toList();
+
+    // Sort transactions based on transaction.tanggal (includes hour & minute)
+    filteredTransactions.sort((a, b) => b.tanggal.compareTo(a.tanggal));
+
+    return filteredTransactions;
   }
 
   bool _isSameDay(DateTime date1, DateTime date2) {
