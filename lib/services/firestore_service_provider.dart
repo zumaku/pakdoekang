@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:pakdoekang/services/firestore.dart';
 
 class FirestoreServiceProvider with ChangeNotifier {
@@ -13,8 +12,8 @@ class FirestoreServiceProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<List<Transaksi>> getTransaksi(DateTime date) async {
-    return await _firestoreService.getTransaksi(date);
+  Stream<List<Transaksi>> getTransaksi(DateTime date) {
+    return _firestoreService.getTransaksi(date);
   }
 
   Future<void> updateTransaksi(String id, String aktifitas, double jumlah, bool isPengeluaran,

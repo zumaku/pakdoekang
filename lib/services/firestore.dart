@@ -31,20 +31,21 @@ class FirestoreService {
   }
 
   // Fungsi untuk ambil transaksi suatu hari
-  Future<List<Transaksi>> getTransaksi(DateTime date) async {
-    QuerySnapshot snapshot = await transactions.get();
-    DateTime today = date;
+  Stream<List<Transaksi>> getTransaksi(DateTime date) {
+    return transactions.snapshots().map((snapshot) {
+      DateTime today = date;
 
-    // Filter transactions for the same day
-    List<Transaksi> filteredTransactions = snapshot.docs
-        .map((doc) => Transaksi.fromFirestore(doc))
-        .where((transaction) => _isSameDay(transaction.tanggal, today))
-        .toList();
+      // Filter transactions for the same day
+      List<Transaksi> filteredTransactions = snapshot.docs
+          .map((doc) => Transaksi.fromFirestore(doc))
+          .where((transaction) => _isSameDay(transaction.tanggal, today))
+          .toList();
 
-    // Sort transactions based on transaction.tanggal (includes hour & minute)
-    filteredTransactions.sort((a, b) => b.tanggal.compareTo(a.tanggal));
+      // Sort transactions based on transaction.tanggal (includes hour & minute)
+      filteredTransactions.sort((a, b) => b.tanggal.compareTo(a.tanggal));
 
-    return filteredTransactions;
+      return filteredTransactions;
+    });
   }
 
   bool _isSameDay(DateTime date1, DateTime date2) {
