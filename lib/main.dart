@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/pages/archive_page.dart';
 import 'package:pakdoekang/pages/insight_page.dart';
-import 'package:pakdoekang/pages/search_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/widgets/my_bottom_navbar.dart';
 import 'package:pakdoekang/widgets/my_app_bar.dart';
@@ -42,10 +41,15 @@ class _MyAppState extends State<MyApp> {
     ];
 
     return MaterialApp(
+      title: "Pakdiekang",
       theme: ThemeData(
         appBarTheme: MyAppBar.theme,
-        primaryColor: MyColor.brand,
         scaffoldBackgroundColor: MyColor.base1,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: MyColor.brand,
+          background: MyColor.base5,
+          onBackground: Colors.grey,
+        ),
       ),
       home: Scaffold(
         appBar: MyAppBar(

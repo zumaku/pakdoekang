@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/widgets/form/add_activity.dart'; // Import your ActivityForm widget
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_shadow.dart';
@@ -40,21 +41,28 @@ class MyBottomNavbar extends StatelessWidget {
                 case 4:
                   onItemTapped(index);
                   break;
-                case 1:
+                case 2:
                   showModalBottomSheet(
                     context: context,
+                    isScrollControlled: true, // Set this to true
                     builder: (context) {
-                      return Container(
-                        height: 200,
-                        color: Colors.white,
-                        child: Center(
-                          child: Text('Search Bottom Sheet'),
+                      return SingleChildScrollView(
+                        padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom,
+                        ),
+                        child: ActivityForm(
+                          onSubmit: (activity, amount, categories, date,
+                              isSpend, notes) {
+                            // Handle form submission here
+                            Navigator.pop(context); // Close the bottom sheet
+                          },
                         ),
                       );
                     },
                   );
+
                   break;
-                case 2:
+                case 1:
                   showModalBottomSheet(
                     context: context,
                     builder: (context) {
