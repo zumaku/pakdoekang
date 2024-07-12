@@ -43,7 +43,7 @@ class TodayPage extends StatelessWidget {
                         activity: transaction.aktifitas,
                         amount: transaction.jumlah,
                         date: transaction.tanggal,
-                        category: transaction.kategori,
+                        categories: transaction.kategori,
                         isSpend: transaction.isPengeluaran,
                         notes: transaction.catatan,
                       );

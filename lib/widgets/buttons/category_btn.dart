@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -33,7 +31,7 @@ class MyCategoryButton extends StatelessWidget {
       onTap: onTap,
       child: IntrinsicWidth(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 0, horizontal: 8),
           decoration: BoxDecoration(
               color: color,
               border: Border.all(
@@ -45,7 +43,7 @@ class MyCategoryButton extends StatelessWidget {
             children: [
               icon!,
               SizedBox(
-                width: 10,
+                width: 4,
               ),
               MyText.buttonThree(text)
             ],
@@ -60,13 +58,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Kuliah",
-      icon: MyCategoryIcon.kuliah(backgroundColor: bgColor),
+      icon: MyCategoryIcon.kuliah(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -77,13 +78,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Makan",
-      icon: MyCategoryIcon.makan(backgroundColor: bgColor),
+      icon: MyCategoryIcon.makan(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -94,13 +98,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Iuran",
-      icon: MyCategoryIcon.iuran(backgroundColor: bgColor),
+      icon: MyCategoryIcon.iuran(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -111,13 +118,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Belanja",
-      icon: MyCategoryIcon.belanja(backgroundColor: bgColor),
+      icon: MyCategoryIcon.belanja(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -128,13 +138,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Hiburan",
-      icon: MyCategoryIcon.hiburan(backgroundColor: bgColor),
+      icon: MyCategoryIcon.hiburan(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -145,13 +158,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Utang",
-      icon: MyCategoryIcon.utang(backgroundColor: bgColor),
+      icon: MyCategoryIcon.utang(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -162,13 +178,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Gajian",
-      icon: MyCategoryIcon.gajian(backgroundColor: bgColor),
+      icon: MyCategoryIcon.gajian(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -179,13 +198,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Tabungan",
-      icon: MyCategoryIcon.tabungan(backgroundColor: bgColor),
+      icon: MyCategoryIcon.tabungan(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );
@@ -196,13 +218,16 @@ class MyCategoryButton extends StatelessWidget {
     VoidCallback? onTap,
   }) {
     Color bgColor = MyColor.brand;
+    Color borderColor = MyColor.brand;
     if (!isSelected) {
       bgColor = Colors.transparent;
+      borderColor = Colors.transparent;
     }
 
     return MyCategoryButton(
       text: "Hadiah",
-      icon: MyCategoryIcon.hadiah(backgroundColor: bgColor),
+      icon: MyCategoryIcon.hadiah(
+          backgroundColor: bgColor, borderColor: borderColor),
       isSelected: isSelected,
       onTap: onTap,
     );

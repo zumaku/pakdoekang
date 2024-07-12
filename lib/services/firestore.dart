@@ -8,7 +8,7 @@ class FirestoreService {
 
   // Function to add a new transaction with categories as an array
   Future<void> addTransaksi(String aktifitas, double jumlah, bool isPengeluaran,
-      DateTime tanggal, String kategori, String catatan) async {
+      DateTime tanggal, List<dynamic> kategori, String catatan) async {
     try {
       await transactions.add({
         'aktifitas': aktifitas,
@@ -53,7 +53,7 @@ class FirestoreService {
       double jumlah,
       bool isPengeluaran,
       DateTime tanggal,
-      String kategori,
+      List<dynamic> kategori,
       String catatan) async {
     try {
       await transactions.doc(id).update({
@@ -87,7 +87,7 @@ class Transaksi {
   final double jumlah;
   final bool isPengeluaran;
   final DateTime tanggal;
-  final String kategori;
+  final List<dynamic> kategori;
   final String catatan;
 
   Transaksi({
@@ -108,7 +108,7 @@ class Transaksi {
       jumlah: (data['jumlah'] ?? 0.0).toDouble(),
       isPengeluaran: data['isPengeluaran'] ?? false,
       tanggal: (data['tanggal'] as Timestamp).toDate(),
-      kategori: data['kategori'] ?? '',
+      kategori: data['kategori'] ?? [],
       catatan: data['catatan'] ?? '',
     );
   }

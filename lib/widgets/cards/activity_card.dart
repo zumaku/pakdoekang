@@ -1,8 +1,8 @@
-// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:pakdoekang/controllers/currency_format.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
-import 'package:pakdoekang/widgets/cards/detail_actifity_card.dart';
+import 'package:pakdoekang/widgets/cards/detail_activity_card.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -11,7 +11,7 @@ import 'package:pakdoekang/widgets/styles/my_text.dart';
 class ActivityCard extends StatelessWidget {
   final String activity;
   final double amount;
-  final String category;
+  final List<dynamic> categories;
   final DateTime date;
   final bool isSpend;
   final String notes;
@@ -20,7 +20,7 @@ class ActivityCard extends StatelessWidget {
     super.key,
     required this.activity,
     required this.amount,
-    required this.category,
+    required this.categories,
     required this.date,
     required this.isSpend,
     required this.notes,
@@ -40,7 +40,7 @@ class ActivityCard extends StatelessWidget {
                 return DetailActivityCard(
                     activity: activity,
                     amount: amount,
-                    category: category,
+                    categories: categories,
                     date: date,
                     notes: notes,
                     isSpend: isSpend);
@@ -66,7 +66,38 @@ class ActivityCard extends StatelessWidget {
                               CurrencyFormat.convertToIdr(amount, 0)),
                         ],
                       ),
-                      getIcon(category)
+                      Stack(
+                        alignment: AlignmentDirectional.topEnd,
+                        fit: StackFit.passthrough,
+                        textDirection: TextDirection.rtl,
+                        children: [
+                          Container(
+                            width: 80,
+                            height: 40,
+                            // color: Colors.red,
+                          ),
+                          ...categories.asMap().entries.map((entry) {
+                            int idx = entry.key;
+                            String category = entry.value;
+
+                            if (categories.length > 3 && idx == 0) {
+                              // Show special icon if there are more than 3 categories
+                              return Positioned(
+                                right: idx * 23.0,
+                                child:
+                                    getCategoryIcon("${categories.length - 2}"),
+                              );
+                            } else if (idx < 3) {
+                              return Positioned(
+                                right: idx * 23.0,
+                                child: getCategoryIcon(category),
+                              );
+                            } else {
+                              return Container();
+                            }
+                          }).toList(),
+                        ],
+                      )
                     ],
                   ),
                   SizedBox(
@@ -91,28 +122,40 @@ class ActivityCard extends StatelessWidget {
         ));
   }
 
-  static Widget getIcon(String category) {
+  static Widget getCategoryIcon(String category) {
     switch (category.toLowerCase()) {
       case 'makan':
-        return MyCategoryIcon.makan();
+        return MyCategoryIcon.makan(borderColor: MyColor.brand4);
       case 'kuliah':
-        return MyCategoryIcon.kuliah();
+        return MyCategoryIcon.kuliah(borderColor: MyColor.brand4);
       case 'hiburan':
-        return MyCategoryIcon.hiburan();
+        return MyCategoryIcon.hiburan(borderColor: MyColor.brand4);
       case 'utang':
-        return MyCategoryIcon.utang();
+        return MyCategoryIcon.utang(borderColor: MyColor.brand4);
       case 'belanja':
-        return MyCategoryIcon.belanja();
+        return MyCategoryIcon.belanja(borderColor: MyColor.brand4);
       case 'tabungan':
-        return MyCategoryIcon.tabungan();
+        return MyCategoryIcon.tabungan(borderColor: MyColor.brand4);
       case 'iuran':
-        return MyCategoryIcon.iuran();
+        return MyCategoryIcon.iuran(borderColor: MyColor.brand4);
       case 'gajian':
-        return MyCategoryIcon.gajian();
+        return MyCategoryIcon.gajian(borderColor: MyColor.brand4);
       case 'hadiah':
-        return MyCategoryIcon.hadiah();
+        return MyCategoryIcon.hadiah(borderColor: MyColor.brand4);
       default:
-        return MyCategoryIcon.makan();
+        return Container(
+          width: 32,
+          height: 32,
+          padding: EdgeInsets.all(4),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              color: Colors.transparent,
+              border: Border.all(
+                color: MyColor.base,
+                width: 1.5,
+              )),
+          child: MyText.buttonThree("${category}+"),
+        );
     }
   }
 }

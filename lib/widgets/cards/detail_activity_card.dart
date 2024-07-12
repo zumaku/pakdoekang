@@ -10,7 +10,7 @@ import 'package:pakdoekang/widgets/styles/my_text.dart';
 class DetailActivityCard extends StatelessWidget {
   final String activity;
   final double amount;
-  final String category;
+  final List<dynamic> categories;
   final DateTime date;
   final bool isSpend;
   final String notes;
@@ -19,7 +19,7 @@ class DetailActivityCard extends StatelessWidget {
     super.key,
     required this.activity,
     required this.amount,
-    required this.category,
+    required this.categories,
     required this.date,
     required this.isSpend,
     required this.notes,
@@ -40,6 +40,8 @@ class DetailActivityCard extends StatelessWidget {
           ),
         ),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
               padding: EdgeInsets.symmetric(vertical: 18, horizontal: padding),
@@ -91,26 +93,39 @@ class DetailActivityCard extends StatelessWidget {
             ),
             SizedBox(height: 14),
             SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // SizedBox(width: 16),
-                  // MyCategoryButton.kuliah(isSelected: true),
-                  // SizedBox(width: 10),
-                  // MyCategoryButton.tabungan(isSelected: false),
-                  // SizedBox(width: 10),
-                  // MyCategoryButton.belanja(isSelected: false),
-                  // SizedBox(width: 10),
-                  // MyCategoryButton.makan(isSelected: false),
-                  // SizedBox(width: 10),
-                  // MyCategoryButton.hadiah(isSelected: false),
-                  // SizedBox(width: 16),
-                  DetailActivityCard.getIconButton(category),
-                ],
-              ),
-            ),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: categories.map((category) {
+                    return Row(
+                      children: [
+                        SizedBox(width: 16),
+                        DetailActivityCard.getIconButton(category),
+                      ],
+                    );
+                  }).toList(),
+
+                  // children: [
+                  //   SizedBox(width: 16),
+                  //   MyCategoryButton.kuliah(isSelected: true),
+                  //   SizedBox(width: 10),
+                  //   MyCategoryButton.tabungan(isSelected: false),
+                  //   SizedBox(width: 10),
+                  //   MyCategoryButton.belanja(isSelected: false),
+                  //   SizedBox(width: 10),
+                  //   MyCategoryButton.makan(isSelected: false),
+                  //   SizedBox(width: 10),
+                  //   MyCategoryButton.hadiah(isSelected: false),
+                  //   SizedBox(width: 16),
+                  //   MyCategoryButton.belanja(isSelected: false),
+                  //   SizedBox(width: 10),
+                  //   MyCategoryButton.makan(isSelected: false),
+                  //   SizedBox(width: 10),
+                  //   MyCategoryButton.hadiah(isSelected: false),
+                  //   SizedBox(width: 16),
+                  // ],
+                )),
             SizedBox(height: 14),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: padding),
