@@ -7,6 +7,7 @@ import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_shadow.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
+import 'package:skeleton_loader/skeleton_loader.dart';
 
 class DailySpendCard extends StatelessWidget {
   const DailySpendCard({super.key});
@@ -20,7 +21,18 @@ class DailySpendCard extends StatelessWidget {
           Provider.of<FirestoreServiceProvider>(context).getTransaksi(today),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return SkeletonLoader(
+            // Customize your skeleton loader here
+            builder: Container(
+              height: 140,
+              decoration: BoxDecoration(
+                color: MyColor.brand5,
+                borderRadius: BorderRadius.circular(16),
+              ),
+            ),
+            items: 1,
+            period: Duration(seconds: 1),
+          );
         }
         if (snapshot.hasError) {
           return Center(child: Text('Error: ${snapshot.error}'));

@@ -8,6 +8,7 @@ import 'package:pakdoekang/widgets/cards/daily_spend_card.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
+import 'package:skeleton_loader/skeleton_loader.dart';
 
 class TodayPage extends StatelessWidget {
   @override
@@ -31,7 +32,19 @@ class TodayPage extends StatelessWidget {
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return Center(child: CircularProgressIndicator());
+                              return SkeletonLoader(
+                                // Customize your skeleton loader here
+                                builder: Container(
+                                  height: 100,
+                                  margin: EdgeInsets.symmetric(vertical: 18.0),
+                                  decoration: BoxDecoration(
+                                    color: MyColor.base5,
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                ),
+                                items: 3,
+                                period: Duration(seconds: 1),
+                              );
                             }
                             if (snapshot.hasError) {
                               return Center(
