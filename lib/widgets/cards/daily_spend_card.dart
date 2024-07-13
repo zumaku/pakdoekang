@@ -39,7 +39,13 @@ class DailySpendCard extends StatelessWidget {
           );
         }
         if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
+          return Container(
+            height: MediaQuery.of(context).size.height / 2 - 20,
+            child: Center(
+              child: MyText.labelOne("Error: ${snapshot.error}",
+                  color: MyColor.base),
+            ),
+          );
         }
         // if (!snapshot.hasData || snapshot.data!.isEmpty) {
         //   return Center(child: Text('No transactions found for today.'));

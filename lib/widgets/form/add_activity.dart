@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
-import 'package:pakdoekang/services/firestore.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/icon_button.dart';
 import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';

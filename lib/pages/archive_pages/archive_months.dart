@@ -6,6 +6,7 @@ import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_shadow.dart';
 import 'package:pakdoekang/controllers/currency_format.dart';
 import 'package:provider/provider.dart';
+import 'package:skeleton_loader/skeleton_loader.dart';
 import '../../widgets/styles/my_text.dart';
 
 class ArchiveMonthsPage extends StatelessWidget {
@@ -23,11 +24,62 @@ class ArchiveMonthsPage extends StatelessWidget {
       stream: Provider.of<FirestoreServiceProvider>(context).getSummarizeMonths,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return Column(children: [
+            SizedBox(height: 14),
+            SkeletonLoader(
+              builder: Container(
+                height: 140,
+                margin: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: MyColor.brand5,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+              items: 1,
+              period: Duration(seconds: 1),
+            ),
+            SizedBox(height: 14),
+            SkeletonLoader(
+              builder: Container(
+                height: 140,
+                margin: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: MyColor.brand5,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+              items: 1,
+              period: Duration(seconds: 1),
+            ),
+            SizedBox(height: 14),
+            SkeletonLoader(
+              builder: Container(
+                height: 140,
+                margin: EdgeInsets.all(16),
+                decoration: BoxDecoration(
+                  color: MyColor.brand5,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+              ),
+              items: 1,
+              period: Duration(seconds: 1),
+            ),
+          ]);
         } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
+          return Container(
+            height: MediaQuery.of(context).size.height / 2 - 20,
+            child: Center(
+              child: MyText.labelOne("Error: ${snapshot.error}",
+                  color: MyColor.base),
+            ),
+          );
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Center(child: Text('No data available'));
+          return Container(
+            height: MediaQuery.of(context).size.height / 2 - 20,
+            child: Center(
+              child: MyText.labelOne("Tidak ada Arsip", color: MyColor.base),
+            ),
+          );
         }
 
         final summaries = snapshot.data!;
