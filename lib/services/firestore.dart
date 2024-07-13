@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:intl/intl.dart';
 
 class FirestoreService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
@@ -30,15 +31,12 @@ class FirestoreService {
         snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList());
   }
 
-  // Fungsi untuk ambil transaksi suatu hari
+  // Function to get transactions for a specific date
   Stream<List<Transaksi>> getTransaksi(DateTime date) {
     return transactions.snapshots().map((snapshot) {
-      DateTime today = date;
-
-      // Filter transactions for the same day
       List<Transaksi> filteredTransactions = snapshot.docs
           .map((doc) => Transaksi.fromFirestore(doc))
-          .where((transaction) => _isSameDay(transaction.tanggal, today))
+          .where((transaction) => _isSameDay(transaction.tanggal, date))
           .toList();
 
       // Sort transactions based on transaction.tanggal (includes hour & minute)
@@ -52,6 +50,68 @@ class FirestoreService {
     return date1.year == date2.year &&
         date1.month == date2.month &&
         date1.day == date2.day;
+  }
+
+  // Function to summarize transactions by month
+  Stream<List<Map<String, dynamic>>> getSummarizeMonths() async* {
+    Map<String, Map<String, dynamic>> monthlySummary = {};
+
+    // Fetch all transactions from Firestore
+    var snapshot = await transactions.get();
+
+    // Process each transaction
+    for (var doc in snapshot.docs) {
+      var transaksi = Transaksi.fromFirestore(doc);
+      String monthKey = DateFormat('yyyy-MM').format(transaksi.tanggal);
+
+      // Initialize monthly summary if not already created
+      if (!monthlySummary.containsKey(monthKey)) {
+        DateTime monthStartDate =
+            DateTime(transaksi.tanggal.year, transaksi.tanggal.month, 1);
+        monthlySummary[monthKey] = {
+          'datetime': monthStartDate,
+          'totalPengeluaran': 0.0,
+          'totalPemasukan': 0.0,
+          'categoryCount': <String, int>{}
+        };
+      }
+
+      // Update totals based on transaction type
+      if (transaksi.isPengeluaran) {
+        monthlySummary[monthKey]!['totalPengeluaran'] += transaksi.jumlah;
+      } else {
+        monthlySummary[monthKey]!['totalPemasukan'] += transaksi.jumlah;
+      }
+
+      // Update category counts
+      for (var category in transaksi.kategori) {
+        var categoryCountMap =
+            monthlySummary[monthKey]!['categoryCount'] as Map<String, int>;
+        categoryCountMap[category] = (categoryCountMap[category] ?? 0) + 1;
+      }
+    }
+
+    List<Map<String, dynamic>> summaries = [];
+    monthlySummary.forEach((key, value) {
+      var sortedCategories = (value['categoryCount'] as Map<String, int>)
+          .entries
+          .toList()
+        ..sort((a, b) => b.value.compareTo(a.value));
+
+      var topCategories = sortedCategories.take(3).map((e) => e.key).toList();
+
+      summaries.add({
+        'datetime': value['datetime'], // Return DateTime
+        'totalPengeluaran': value['totalPengeluaran'],
+        'totalPemasukan': value['totalPemasukan'],
+        'topCategories': topCategories,
+      });
+    });
+
+    // Sort summaries by date
+    summaries.sort((a, b) => b['datetime'].compareTo(a['datetime']));
+
+    yield summaries;
   }
 
   // Function to update a transaction

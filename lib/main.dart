@@ -4,6 +4,7 @@ import 'package:pakdoekang/pages/archive_page.dart';
 import 'package:pakdoekang/pages/insight_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
+import 'package:pakdoekang/services/navbar_provider.dart';
 import 'package:pakdoekang/widgets/my_bottom_navbar.dart';
 import 'package:pakdoekang/widgets/my_app_bar.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -21,6 +22,7 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => FirestoreServiceProvider()),
         ChangeNotifierProvider(create: (_) => DummyProvider()),
+        ChangeNotifierProvider(create: (_) => NavigationProvider()),
       ],
       child: MyApp(),
     ),
@@ -46,40 +48,25 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MainPage extends StatefulWidget {
-  @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final navigationProvider = Provider.of<NavigationProvider>(context);
     final List<Widget> pages = [
-      ArchivePage(),
-      Container(), // Placeholder for your other pages
-      Container(), // Placeholder for your other pages
       TodayPage(),
+      Container(), // Placeholder for your other pages
+      Container(), // Placeholder for your other pages
+      ArchivePage(),
       InsightPage(),
     ];
 
     return Scaffold(
       appBar: MyAppBar(
-        selectedIndex: _selectedIndex,
+        selectedIndex: navigationProvider.selectedIndex,
         profileImage: 'assets/images/ProfilePicture.png',
       ),
-      body: pages[_selectedIndex],
-      bottomNavigationBar: MyBottomNavbar(
-        selectedIndex: _selectedIndex,
-        onItemTapped: _onItemTapped,
-      ),
+      body: pages[navigationProvider.selectedIndex],
+      bottomNavigationBar: MyBottomNavbar(),
     );
   }
 }

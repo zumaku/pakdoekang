@@ -516,8 +516,8 @@ class DummyProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<DummyTransaction> getTransaksiToday() {
-    DateTime today = DateTime.now();
+  List<DummyTransaction> getTransaksi(DateTime today) {
+    today = today ?? DateTime.now();
     return _transaksiList
         .where((transaksi) =>
             transaksi.tanggal.year == today.year &&
@@ -528,49 +528,6 @@ class DummyProvider with ChangeNotifier {
 
   List<Map<String, dynamic>> getSummarizeMonths() {
     Map<String, Map<String, dynamic>> monthlySummary = {};
-
-    // for (var transaksi in _transaksiList) {
-    //   String monthKey = DateFormat('yyyy-MM').format(transaksi.tanggal);
-    //   if (!monthlySummary.containsKey(monthKey)) {
-    //     monthlySummary[monthKey] = {
-    //       'month': DateFormat('MMMM yyyy').format(transaksi.tanggal),
-    //       'totalPengeluaran': 0.0,
-    //       'totalPemasukan': 0.0,
-    //       'categoryCount': <String, int>{}
-    //     };
-    //   }
-
-    //   monthlySummary[monthKey]!['totalPengeluaran'] ??= 0.0;
-    //   monthlySummary[monthKey]!['totalPemasukan'] ??= 0.0;
-
-    //   if (transaksi.isPengeluaran) {
-    //     monthlySummary[monthKey]!['totalPengeluaran'] += transaksi.jumlah;
-    //   } else {
-    //     monthlySummary[monthKey]!['totalPemasukan'] += transaksi.jumlah;
-    //   }
-
-    //   for (var category in transaksi.kategori) {
-    //     var categoryCountMap =
-    //         monthlySummary[monthKey]!['categoryCount'] as Map<String, int>;
-    //     categoryCountMap[category] = (categoryCountMap[category] ?? 0) + 1;
-    //   }
-    // }
-
-    // List<Map<String, dynamic>> summaries = [];
-    // monthlySummary.forEach((key, value) {
-    //   var sortedCategories = (value['categoryCount'] as Map<String, int>)
-    //       .entries
-    //       .toList()
-    //     ..sort((a, b) => b.value.compareTo(a.value));
-    //   var topCategories = sortedCategories.take(3).map((e) => e.key).toList();
-
-    //   summaries.add({
-    //     'month': value['month'],
-    //     'totalPengeluaran': value['totalPengeluaran'],
-    //     'totalPemasukan': value['totalPemasukan'],
-    //     'topCategories': topCategories,
-    //   });
-    // });
 
     for (var transaksi in _transaksiList) {
       String monthKey = DateFormat('yyyy-MM').format(transaksi.tanggal);

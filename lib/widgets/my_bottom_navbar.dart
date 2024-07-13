@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pakdoekang/widgets/form/add_activity.dart'; // Import your ActivityForm widget
+import 'package:pakdoekang/services/navbar_provider.dart';
+import 'package:pakdoekang/widgets/form/add_activity.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_shadow.dart';
+import 'package:provider/provider.dart';
 
 class MyBottomNavbar extends StatelessWidget {
-  final int selectedIndex;
-  final Function(int) onItemTapped;
-
-  MyBottomNavbar({
-    required this.selectedIndex,
-    required this.onItemTapped,
-  });
-
   @override
   Widget build(BuildContext context) {
+    final navigationProvider = Provider.of<NavigationProvider>(context);
+    final int selectedIndex = navigationProvider.selectedIndex;
+
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -37,14 +34,18 @@ class MyBottomNavbar extends StatelessWidget {
             onTap: (index) {
               switch (index) {
                 case 0:
+                  navigationProvider.setSelectedIndex(index);
+                  break;
                 case 3:
+                  navigationProvider.resetArchiveState();
+                  navigationProvider.setSelectedIndex(index);
                 case 4:
-                  onItemTapped(index);
+                  navigationProvider.setSelectedIndex(index);
                   break;
                 case 2:
                   showModalBottomSheet(
                     context: context,
-                    isScrollControlled: true, // Set this to true
+                    isScrollControlled: true,
                     builder: (context) {
                       return SingleChildScrollView(
                         padding: EdgeInsets.only(
@@ -53,14 +54,12 @@ class MyBottomNavbar extends StatelessWidget {
                         child: ActivityForm(
                           onSubmit: (activity, amount, categories, date,
                               isSpend, notes) {
-                            // Handle form submission here
-                            Navigator.pop(context); // Close the bottom sheet
+                            Navigator.pop(context);
                           },
                         ),
                       );
                     },
                   );
-
                   break;
                 case 1:
                   showModalBottomSheet(
@@ -109,13 +108,13 @@ class MyBottomNavbar extends StatelessWidget {
                 label: 'Tambah',
               ),
               BottomNavigationBarItem(
-                icon: selectedIndex - 1 == 2
+                icon: selectedIndex == 3
                     ? MyIcon.archiveFill(color: MyColor.brand)
                     : MyIcon.archiveAlt(color: MyColor.base),
                 label: 'Arsip',
               ),
               BottomNavigationBarItem(
-                icon: selectedIndex - 1 == 3
+                icon: selectedIndex == 4
                     ? MyIcon.pieChartFill(color: MyColor.brand)
                     : MyIcon.pieChartAlt(color: MyColor.base),
                 label: 'Masukan',

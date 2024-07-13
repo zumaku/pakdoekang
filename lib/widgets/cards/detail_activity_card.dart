@@ -82,16 +82,34 @@ class DetailActivityCard extends StatelessWidget {
                                   await provider.deleteTransaksi(id_activity);
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                        content: Text(
-                                            'Transaction deleted successfully')),
+                                      content: Text(
+                                        'Transaksi berhasil dihapus',
+                                        style: MyText.getButtonOneStyle(
+                                            color: MyColor.base5),
+                                      ),
+                                      backgroundColor: MyColor.brand2,
+                                      behavior: SnackBarBehavior.floating,
+                                      // action: SnackBarAction(
+                                      //   label: 'UNDO',
+                                      //   textColor: Colors.yellow,
+                                      //   onPressed: () {
+                                      //     // Some code to undo the change.
+                                      //   },
+                                      // ),
+                                    ),
                                   );
                                   Navigator.pop(
                                       context); // Close the modal bottom sheet
                                 } catch (e) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
-                                        content: Text(
-                                            'Error deleting transaction: $e')),
+                                      content: Text(
+                                        'Gagal menghapus data! Error: $e',
+                                        style: TextStyle(color: Colors.white),
+                                      ),
+                                      backgroundColor: Colors.red,
+                                      behavior: SnackBarBehavior.floating,
+                                    ),
                                   );
                                 }
                               },

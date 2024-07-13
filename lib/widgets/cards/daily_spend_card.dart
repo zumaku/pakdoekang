@@ -10,12 +10,16 @@ import 'package:provider/provider.dart';
 import 'package:skeleton_loader/skeleton_loader.dart';
 
 class DailySpendCard extends StatelessWidget {
-  const DailySpendCard({super.key});
+  final DateTime today;
+
+  DailySpendCard({
+    Key? key,
+    DateTime? today,
+  })  : today = today ?? DateTime.now(),
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    DateTime today = DateTime.now();
-
     return StreamBuilder<List<Transaksi>>(
       stream:
           Provider.of<FirestoreServiceProvider>(context).getTransaksi(today),
