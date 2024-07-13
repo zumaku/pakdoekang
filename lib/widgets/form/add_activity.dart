@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
 import 'package:pakdoekang/services/firestore.dart';
+import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/icon_button.dart';
 import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';
 import 'package:pakdoekang/widgets/form/category_selector.dart';
@@ -8,6 +9,7 @@ import 'package:pakdoekang/widgets/form/input_form.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
+import 'package:provider/provider.dart';
 
 class ActivityForm extends StatefulWidget {
   final void Function(String, double, List<dynamic>, DateTime, bool, String)
@@ -25,7 +27,7 @@ class _ActivityFormState extends State<ActivityForm> {
   double _amount = 0.0;
   List<dynamic> _selectedCategories = [];
   DateTime _selectedDate = DateTime.now();
-  bool _isSpend = false;
+  bool _isSpend = true;
   String _notes = '';
 
   void _toggleSpend() {
@@ -41,7 +43,7 @@ class _ActivityFormState extends State<ActivityForm> {
       } else {
         _selectedCategories.add(category);
       }
-      print(_selectedCategories);
+      // print(_selectedCategories);
     });
   }
 
@@ -94,32 +96,47 @@ class _ActivityFormState extends State<ActivityForm> {
   void _submitForm() async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      widget.onSubmit(
-        _activity,
-        _amount,
-        _selectedCategories,
-        _selectedDate,
-        _isSpend,
-        _notes,
-      );
 
-      FirestoreService firestoreService = FirestoreService();
+      final provider =
+          Provider.of<FirestoreServiceProvider>(context, listen: false);
 
-      // Tambahkan kode untuk mengirim data ke Firestore di sini
-      await firestoreService
-          .addTransaksi(
-        _activity,
-        _amount,
-        _isSpend,
-        _selectedDate,
-        _selectedCategories,
-        _notes,
-      )
-          .then((_) {
-        print('Transaction added to Firestore! ');
-      }).catchError((error) {
-        print('Failed to add transaction: $error');
-      });
+      try {
+        await provider.addTransaksi(
+          _activity,
+          _amount,
+          _isSpend,
+          _selectedDate,
+          _selectedCategories,
+          _notes,
+        );
+
+        // Show SnackBar upon successful submission
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Transaksi berhasil ditambahkan',
+              style: MyText.getButtonOneStyle(color: MyColor.base5),
+            ),
+            backgroundColor: MyColor.brand2,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+
+        // Optionally close modal bottom sheet or navigate after successful submission
+        Navigator.pop(context);
+      } catch (e) {
+        // Show SnackBar on error
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Gagal Menambah data! Error: $e',
+              style: TextStyle(color: Colors.white),
+            ),
+            backgroundColor: MyColor.base,
+            behavior: SnackBarBehavior.floating,
+          ),
+        );
+      }
     }
   }
 
@@ -162,8 +179,8 @@ class _ActivityFormState extends State<ActivityForm> {
                       MyIconButton.smallBase(
                         onTap: () => _toggleSpend(),
                         icon: _isSpend
-                            ? MyIcon.rupiahDownFill()
-                            : MyIcon.rupiahUpFill(),
+                            ? MyIcon.rupiahUpFill()
+                            : MyIcon.rupiahDownFill(),
                       ),
                     ],
                   ),

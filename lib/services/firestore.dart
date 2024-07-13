@@ -15,7 +15,8 @@ class FirestoreService {
         'aktifitas': aktifitas,
         'jumlah': jumlah,
         'isPengeluaran': isPengeluaran,
-        'tanggal': tanggal,
+        'tanggal': Timestamp.fromDate(
+            tanggal), // Store DateTime as Firestore Timestamp
         'kategori': kategori,
         'catatan': catatan,
       });

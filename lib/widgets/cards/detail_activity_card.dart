@@ -107,7 +107,7 @@ class DetailActivityCard extends StatelessWidget {
                                         'Gagal menghapus data! Error: $e',
                                         style: TextStyle(color: Colors.white),
                                       ),
-                                      backgroundColor: Colors.red,
+                                      backgroundColor: MyColor.base,
                                       behavior: SnackBarBehavior.floating,
                                     ),
                                   );
