@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/dummy_data/dummy_provider.dart';
 import 'package:pakdoekang/pages/archive_page.dart';
 import 'package:pakdoekang/pages/insight_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
@@ -19,6 +20,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => FirestoreServiceProvider()),
+        ChangeNotifierProvider(create: (_) => DummyProvider()),
       ],
       child: MyApp(),
     ),
@@ -61,10 +63,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-      TodayPage(), 
+      ArchivePage(),
       Container(), // Placeholder for your other pages
       Container(), // Placeholder for your other pages
-      ArchivePage(), 
+      TodayPage(),
       InsightPage(),
     ];
 
