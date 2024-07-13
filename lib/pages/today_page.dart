@@ -36,7 +36,7 @@ class TodayPage extends StatelessWidget {
                                 // Customize your skeleton loader here
                                 builder: Container(
                                   height: 100,
-                                  margin: EdgeInsets.symmetric(vertical: 18.0),
+                                  margin: EdgeInsets.symmetric(vertical: 10.0),
                                   decoration: BoxDecoration(
                                     color: MyColor.base5,
                                     borderRadius: BorderRadius.circular(16),
@@ -65,6 +65,7 @@ class TodayPage extends StatelessWidget {
                             return Column(
                               children: transactions.map((transaction) {
                                 return ActivityCard(
+                                  id_activity: transaction.id,
                                   activity: transaction.aktifitas,
                                   amount: transaction.jumlah,
                                   date: transaction.tanggal,

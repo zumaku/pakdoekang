@@ -9,6 +9,7 @@ import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 
 class ActivityCard extends StatelessWidget {
+  final String id_activity;
   final String activity;
   final double amount;
   final List<dynamic> categories;
@@ -18,6 +19,7 @@ class ActivityCard extends StatelessWidget {
 
   ActivityCard({
     super.key,
+    required this.id_activity,
     required this.activity,
     required this.amount,
     required this.categories,
@@ -38,6 +40,7 @@ class ActivityCard extends StatelessWidget {
               context: context,
               builder: (BuildContext context) {
                 return DetailActivityCard(
+                    id_activity: id_activity,
                     activity: activity,
                     amount: amount,
                     categories: categories,

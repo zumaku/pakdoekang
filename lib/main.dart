@@ -61,10 +61,10 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     final List<Widget> pages = [
-      TodayPage(),
+      TodayPage(), 
       Container(), // Placeholder for your other pages
       Container(), // Placeholder for your other pages
-      ArchivePage(),
+      ArchivePage(), 
       InsightPage(),
     ];
 

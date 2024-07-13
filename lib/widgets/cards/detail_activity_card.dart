@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/controllers/currency_format.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
+import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/category_btn.dart';
 import 'package:pakdoekang/widgets/buttons/icon_button.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
+import 'package:provider/provider.dart';
 
 class DetailActivityCard extends StatelessWidget {
+  final String id_activity;
   final String activity;
   final double amount;
   final List<dynamic> categories;
@@ -17,6 +20,7 @@ class DetailActivityCard extends StatelessWidget {
 
   DetailActivityCard({
     super.key,
+    required this.id_activity,
     required this.activity,
     required this.amount,
     required this.categories,
@@ -31,7 +35,6 @@ class DetailActivityCard extends StatelessWidget {
 
     return Container(
         width: double.infinity,
-        // padding: EdgeInsets.symmetric(vertical: 18, horizontal: 16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
@@ -63,15 +66,34 @@ class DetailActivityCard extends StatelessWidget {
                         children: [
                           MyIconButton.smallBrand(
                               onTap: () {
-                                // Isikan aksi nanti
+                                // Edit action can be added here
                               },
                               icon: MyIcon.editFill()),
                           SizedBox(
                             width: 8,
                           ),
                           MyIconButton.smallBase(
-                              onTap: () {
-                                // Isikan aksi nanti
+                              onTap: () async {
+                                final provider =
+                                    Provider.of<FirestoreServiceProvider>(
+                                        context,
+                                        listen: false);
+                                try {
+                                  await provider.deleteTransaksi(id_activity);
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            'Transaction deleted successfully')),
+                                  );
+                                  Navigator.pop(
+                                      context); // Close the modal bottom sheet
+                                } catch (e) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        content: Text(
+                                            'Error deleting transaction: $e')),
+                                  );
+                                }
                               },
                               icon: MyIcon.trashFill())
                         ],
@@ -107,26 +129,6 @@ class DetailActivityCard extends StatelessWidget {
                           ],
                         );
                       }).toList(),
-
-                      // children: [
-                      //   SizedBox(width: 16),
-                      //   MyCategoryButton.kuliah(isSelected: true),
-                      //   SizedBox(width: 10),
-                      //   MyCategoryButton.tabungan(isSelected: false),
-                      //   SizedBox(width: 10),
-                      //   MyCategoryButton.belanja(isSelected: false),
-                      //   SizedBox(width: 10),
-                      //   MyCategoryButton.makan(isSelected: false),
-                      //   SizedBox(width: 10),
-                      //   MyCategoryButton.hadiah(isSelected: false),
-                      //   SizedBox(width: 16),
-                      //   MyCategoryButton.belanja(isSelected: false),
-                      //   SizedBox(width: 10),
-                      //   MyCategoryButton.makan(isSelected: false),
-                      //   SizedBox(width: 10),
-                      //   MyCategoryButton.hadiah(isSelected: false),
-                      //   SizedBox(width: 16),
-                      // ],
                     ])),
             SizedBox(height: 14),
             Padding(
