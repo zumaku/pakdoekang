@@ -102,7 +102,7 @@ class MyBottomNavbar extends StatelessWidget {
                 icon: selectedIndex == 4
                     ? MyIcon.pieChartFill(color: MyColor.brand)
                     : MyIcon.pieChartAlt(color: MyColor.base),
-                label: 'Masukan',
+                label: 'Analisis',
               ),
             ],
           ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/dummy_data/dummy_provider.dart';
 import 'package:pakdoekang/pages/archive_page.dart';
-import 'package:pakdoekang/pages/insight_page.dart';
+import 'package:pakdoekang/pages/analysis_page.dart';
 import 'package:pakdoekang/pages/search_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
@@ -54,11 +54,11 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final navigationProvider = Provider.of<NavigationProvider>(context);
     final List<Widget> pages = [
-      TodayPage(),
+      AnalysisPage(),
       SearchPages(),
       Container(), // Just empty page
       ArchivePage(),
-      InsightPage(),
+      TodayPage(),
     ];
 
     return Scaffold(
