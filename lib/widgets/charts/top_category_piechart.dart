@@ -40,16 +40,6 @@ class TopCategory extends StatelessWidget {
         ),
         child: Column(
           children: [
-            AspectRatio(
-              aspectRatio: 1 / .8,
-              child: PieChart(
-                PieChartData(
-                  sections: _getPieChartSections(topCategories),
-                  centerSpaceRadius: 30,
-                  sectionsSpace: 5,
-                ),
-              ),
-            ),
             MyText.headingSix("Top 5 Category"),
             SizedBox(height: 10),
             Row(
@@ -64,6 +54,16 @@ class TopCategory extends StatelessWidget {
                   ),
                 );
               }).toList(),
+            ),
+            AspectRatio(
+              aspectRatio: 1 / .7,
+              child: PieChart(
+                PieChartData(
+                  sections: _getPieChartSections(topCategories),
+                  centerSpaceRadius: 35,
+                  sectionsSpace: 5,
+                ),
+              ),
             ),
           ],
         ));
