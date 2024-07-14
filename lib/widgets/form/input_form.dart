@@ -11,6 +11,7 @@ class InputFormField extends StatefulWidget {
   final List<TextInputFormatter>? inputFormatters;
   final TextStyle? textStyle; // Added for custom text style
   final FocusNode? focusNode; // Added focus node
+  final String? initialValue; // Added initial value
 
   const InputFormField({
     Key? key,
@@ -22,6 +23,7 @@ class InputFormField extends StatefulWidget {
     this.inputFormatters,
     this.textStyle, // Added for custom text style
     this.focusNode, // Added focus node
+    this.initialValue, // Added initial value
   }) : super(key: key);
 
   @override
@@ -32,12 +34,14 @@ class InputFormField extends StatefulWidget {
     required void Function(String)? onChanged,
     required String? Function(String?)? validator,
     TextStyle? textStyle, // Added for custom text style
+    String? initialValue, // Added initial value
   }) {
     return InputFormField(
       hintText: hintText,
       onChanged: onChanged,
       validator: validator,
       textStyle: textStyle, // Pass custom text style
+      initialValue: initialValue, // Pass initial value
     );
   }
 
@@ -46,6 +50,7 @@ class InputFormField extends StatefulWidget {
     required void Function(String)? onChanged,
     String? Function(String?)? validator,
     TextStyle? textStyle, // Added for custom text style
+    String? initialValue, // Added initial value
   }) {
     return InputFormField(
       hintText: hintText,
@@ -54,6 +59,7 @@ class InputFormField extends StatefulWidget {
       keyboardType: TextInputType.number,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       textStyle: textStyle, // Pass custom text style
+      initialValue: initialValue, // Pass initial value
     );
   }
 
@@ -62,6 +68,7 @@ class InputFormField extends StatefulWidget {
     required void Function(String)? onChanged,
     required String? Function(String?)? validator,
     TextStyle? textStyle, // Added for custom text style
+    String? initialValue, // Added initial value
   }) {
     return InputFormField(
       hintText: hintText,
@@ -70,12 +77,13 @@ class InputFormField extends StatefulWidget {
       keyboardType: TextInputType.multiline,
       maxLines: null,
       textStyle: textStyle, // Pass custom text style
+      initialValue: initialValue, // Pass initial value
     );
   }
 
   static String? _defaultNumberValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Masukkan anga';
+      return 'Masukkan angka';
     }
     final n = num.tryParse(value);
     if (n == null) {
@@ -86,14 +94,27 @@ class InputFormField extends StatefulWidget {
 
   static String? textValidator(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Masukkan tekt';
+      return 'Masukkan teks';
     }
-    return null; // Menghapus validasi hanya huruf alfabet
+    return null;
   }
 }
 
 class _InputFormFieldState extends State<InputFormField> {
   bool _isFocused = false;
+  late TextEditingController _controller; // Added TextEditingController
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = TextEditingController(text: widget.initialValue); // Initialize controller with initial value
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -115,6 +136,7 @@ class _InputFormFieldState extends State<InputFormField> {
           });
         },
         child: TextFormField(
+          controller: _controller, // Use the controller
           decoration: InputDecoration(
             hintText: widget.hintText,
             border: InputBorder.none,

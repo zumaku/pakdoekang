@@ -4,6 +4,7 @@ import 'package:pakdoekang/controllers/date_converter.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/category_btn.dart';
 import 'package:pakdoekang/widgets/buttons/icon_button.dart';
+import 'package:pakdoekang/widgets/form/edit_activity.dart';
 import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
@@ -66,7 +67,27 @@ class DetailActivityCard extends StatelessWidget {
                         children: [
                           MyIconButton.smallBrand(
                               onTap: () {
-                                // Edit action can be added here
+                                Navigator.pop(context);
+                                showModalBottomSheet(
+                                  context: context,
+                                  // isScrollControlled: true,
+                                  // shape: RoundedRectangleBorder(
+                                  //   borderRadius: BorderRadius.vertical(
+                                  //     top: Radius.circular(15),
+                                  //   ),
+                                  // ),
+                                  builder: (context) {
+                                    return EditActivityForm(
+                                      id_activity: id_activity,
+                                      initialActivity: activity,
+                                      initialAmount: amount,
+                                      initialCategories: categories,
+                                      initialDate: date,
+                                      initialIsSpend: isSpend,
+                                      initialNotes: notes,
+                                    );
+                                  },
+                                );
                               },
                               icon: MyIcon.editFill()),
                           SizedBox(
@@ -89,13 +110,6 @@ class DetailActivityCard extends StatelessWidget {
                                       ),
                                       backgroundColor: MyColor.brand2,
                                       behavior: SnackBarBehavior.floating,
-                                      // action: SnackBarAction(
-                                      //   label: 'UNDO',
-                                      //   textColor: Colors.yellow,
-                                      //   onPressed: () {
-                                      //     // Some code to undo the change.
-                                      //   },
-                                      // ),
                                     ),
                                   );
                                   Navigator.pop(
