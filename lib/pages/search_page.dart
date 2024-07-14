@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/cards/activity_card.dart';
 import 'package:pakdoekang/widgets/form/input_form.dart';
+import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
 import 'package:pakdoekang/services/firestore.dart';
+import 'package:skeleton_loader/skeleton_loader.dart';
 
 class SearchPages extends StatefulWidget {
   @override
@@ -47,13 +49,32 @@ class _SearchPagesState extends State<SearchPages> {
                 .searchTransaksi(_searchKeyword),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return SkeletonLoader(
+                  // Customize your skeleton loader here
+                  builder: Container(
+                    height: 100,
+                    margin: EdgeInsets.symmetric(vertical: 10.0),
+                    decoration: BoxDecoration(
+                      color: MyColor.base5,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                  ),
+                  items: 2,
+                  period: Duration(seconds: 1),
+                );
               }
               if (snapshot.hasError) {
-                return Center(child: Text('Error loading transactions'));
+                return Center(
+                    child: MyText.paragraphOne('Error: ${snapshot.error}'));
               }
               if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                return Center(child: Text('No transactions found :('));
+                return Container(
+                  height: MediaQuery.of(context).size.height / 2 - 20,
+                  child: Center(
+                    child: MyText.labelOne("Belum ada transaksi",
+                        color: MyColor.base),
+                  ),
+                );
               }
 
               final List<Transaksi> transactions = snapshot.data!;
