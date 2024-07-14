@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:pakdoekang/services/firestore.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
-import 'package:pakdoekang/widgets/buttons/icon_button.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
-import 'package:pakdoekang/widgets/my_icon.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
@@ -34,35 +32,41 @@ class TopCategory extends StatelessWidget {
   Widget _buildPieChart(List<Transaksi> transactions) {
     var topCategories = _getTopCategories(transactions);
 
-    return Column(
-      children: [
-        AspectRatio(
-          aspectRatio: 1 / .8,
-          child: PieChart(
-            PieChartData(
-              sections: _getPieChartSections(topCategories),
-              centerSpaceRadius: 40,
-              sectionsSpace: 5,
-            ),
-          ),
+    return Container(
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
         ),
-        MyText.headingSix("Top 5 Category"),
-        SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: topCategories.map((category) {
-            return Expanded(
-              child: Column(
-                children: [
-                  MyCategoryIcon.getCategoryIcon(category.key),
-                  MyText.labelTwo(category.key),
-                ],
+        child: Column(
+          children: [
+            AspectRatio(
+              aspectRatio: 1 / .8,
+              child: PieChart(
+                PieChartData(
+                  sections: _getPieChartSections(topCategories),
+                  centerSpaceRadius: 30,
+                  sectionsSpace: 5,
+                ),
               ),
-            );
-          }).toList(),
-        ),
-      ],
-    );
+            ),
+            MyText.headingSix("Top 5 Category"),
+            SizedBox(height: 10),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: topCategories.map((category) {
+                return Expanded(
+                  child: Column(
+                    children: [
+                      MyCategoryIcon.getCategoryIcon(category.key),
+                      MyText.labelTwo(category.key),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        ));
   }
 
   List<MapEntry<String, int>> _getTopCategories(List<Transaksi> transactions) {
