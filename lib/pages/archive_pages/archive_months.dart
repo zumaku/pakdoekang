@@ -51,19 +51,6 @@ class ArchiveMonthsPage extends StatelessWidget {
               items: 1,
               period: Duration(seconds: 1),
             ),
-            SizedBox(height: 14),
-            SkeletonLoader(
-              builder: Container(
-                height: 140,
-                margin: EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: MyColor.brand5,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-              ),
-              items: 1,
-              period: Duration(seconds: 1),
-            ),
           ]);
         } else if (snapshot.hasError) {
           return Container(
