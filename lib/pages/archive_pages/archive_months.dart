@@ -153,13 +153,13 @@ class ArchiveMonthsPage extends StatelessWidget {
                                           // Show special icon if there are more than 3 categories
                                           return Positioned(
                                             right: idx * 23.0,
-                                            child: getCategoryIcon(
+                                            child: MyCategoryIcon.getCategoryIcon(
                                                 "${data['topCategories'].length - 1}"),
                                           );
                                         } else if (idx < 3) {
                                           return Positioned(
                                             right: idx * 23.0,
-                                            child: getCategoryIcon(category),
+                                            child: MyCategoryIcon.getCategoryIcon(category),
                                           );
                                         } else {
                                           return Container();
@@ -185,43 +185,5 @@ class ArchiveMonthsPage extends StatelessWidget {
         ));
       },
     );
-  }
-
-  static Widget getCategoryIcon(String category) {
-    switch (category.toLowerCase()) {
-      case 'makan':
-        return MyCategoryIcon.makan(borderColor: MyColor.brand4);
-      case 'kuliah':
-        return MyCategoryIcon.kuliah(borderColor: MyColor.brand4);
-      case 'hiburan':
-        return MyCategoryIcon.hiburan(borderColor: MyColor.brand4);
-      case 'utang':
-        return MyCategoryIcon.utang(borderColor: MyColor.brand4);
-      case 'belanja':
-        return MyCategoryIcon.belanja(borderColor: MyColor.brand4);
-      case 'tabungan':
-        return MyCategoryIcon.tabungan(borderColor: MyColor.brand4);
-      case 'iuran':
-        return MyCategoryIcon.iuran(borderColor: MyColor.brand4);
-      case 'gajian':
-        return MyCategoryIcon.gajian(borderColor: MyColor.brand4);
-      case 'hadiah':
-        return MyCategoryIcon.hadiah(borderColor: MyColor.brand4);
-      default:
-        return Container(
-          width: 32,
-          height: 32,
-          padding: EdgeInsets.all(4),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: Colors.transparent,
-            border: Border.all(
-              color: MyColor.base,
-              width: 1.5,
-            ),
-          ),
-          child: MyText.buttonThree("${category}+"),
-        );
-    }
   }
 }
