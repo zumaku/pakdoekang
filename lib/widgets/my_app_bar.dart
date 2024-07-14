@@ -22,8 +22,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     // ),
 
     return PreferredSize(
-      preferredSize: Size.fromHeight(
-          kToolbarHeight + 17), // Tambahkan padding y + tinggi default appbar
+      preferredSize: Size.fromHeight(kToolbarHeight + 17),
       child: ClipRRect(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(15),
@@ -33,8 +32,9 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
           padding: EdgeInsets.symmetric(horizontal: 10), // Padding x 20
           color: Colors.white,
           child: AppBar(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.transparent,
             title: MyText.headingFive(pageName),
+            surfaceTintColor: Colors.transparent,
             elevation: 0,
             actions: <Widget>[
               IconButton(
@@ -59,9 +59,13 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       case 0:
         return 'Hari Ini';
       case 1:
-        return 'Arsip';
+        return 'Cari';
       case 2:
-        return 'Overview';
+        return 'Tambah';
+      case 3:
+        return 'Arsip';
+      case 4:
+        return 'Masukan';
       default:
         return 'Halaman Tidak Ditemukan';
     }

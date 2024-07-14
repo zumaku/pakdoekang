@@ -34,14 +34,13 @@ class MyBottomNavbar extends StatelessWidget {
             onTap: (index) {
               switch (index) {
                 case 0:
+                case 1:
+                case 4:
                   navigationProvider.setSelectedIndex(index);
                   break;
                 case 3:
                   navigationProvider.resetArchiveState();
                   navigationProvider.setSelectedIndex(index);
-                case 4:
-                  navigationProvider.setSelectedIndex(index);
-                  break;
                 case 2:
                   showModalBottomSheet(
                     context: context,
@@ -56,20 +55,6 @@ class MyBottomNavbar extends StatelessWidget {
                               isSpend, notes) {
                             Navigator.pop(context);
                           },
-                        ),
-                      );
-                    },
-                  );
-                  break;
-                case 1:
-                  showModalBottomSheet(
-                    context: context,
-                    builder: (context) {
-                      return Container(
-                        height: 200,
-                        color: Colors.white,
-                        child: Center(
-                          child: Text('ADD Bottom Sheet'),
                         ),
                       );
                     },

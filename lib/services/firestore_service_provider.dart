@@ -7,8 +7,16 @@ class FirestoreServiceProvider with ChangeNotifier {
   Stream<List<Transaksi>> get allTransaksi =>
       _firestoreService.getAllTransaksi();
 
+  Stream<List<Transaksi>> searchTransaksi(String searchKeyword) {
+    return _firestoreService.searchTransaksi(searchKeyword);
+  }
+
   Stream<List<Transaksi>> getTransaksi(DateTime date) {
     return _firestoreService.getTransaksi(date);
+  }
+
+  Stream<List<Transaksi>> searchTransactionsByActivity(String activityName) {
+    return _firestoreService.searchTransactionsByActivity(activityName);
   }
 
   Stream<List<Map<String, dynamic>>> get getSummarizeMonths {

@@ -41,6 +41,7 @@ dependencies:
   provider: ^6.1.2
   skeleton_loader: ^2.0.0
   date_picker_timeline: ^1.2.3
+  search_page: ^2.3.0
 
 dev_dependencies:
   flutter_test:
