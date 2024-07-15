@@ -33,7 +33,6 @@ class TopCategory extends StatelessWidget {
 
     return Container(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-        margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -56,7 +55,7 @@ class TopCategory extends StatelessWidget {
               }).toList(),
             ),
             AspectRatio(
-              aspectRatio: 1,
+              aspectRatio: 1 / .7,
               child: PieChart(
                 PieChartData(
                   sections: _getPieChartSections(topCategories),

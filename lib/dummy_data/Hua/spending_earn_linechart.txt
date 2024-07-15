@@ -1,0 +1,144 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:fl_chart/fl_chart.dart';
+import 'package:pakdoekang/services/firestore_service_provider.dart';
+
+class SpendEarnLinechart extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final firestoreServiceProvider2 =
+        Provider.of<FirestoreServiceProvider>(context);
+
+    return StreamBuilder<List<Map<String, dynamic>>>(
+      stream: firestoreServiceProvider2.getMonthlySpendEarn(),
+      initialData: [],
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error: ${snapshot.error}'));
+        } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+          return Center(child: Text('No data available'));
+        } else {
+          return LineChartWidget(monthlyData: snapshot.data!);
+        }
+      },
+    );
+  }
+}
+
+class LineChartWidget extends StatelessWidget {
+  final List<Map<String, dynamic>> monthlyData;
+
+  LineChartWidget({required this.monthlyData});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 300, // Set a fixed height for the chart
+      child: LineChart(
+        LineChartData(
+          lineTouchData: LineTouchData(
+            touchTooltipData: LineTouchTooltipData(),
+          ),
+          gridData: FlGridData(show: true),
+          titlesData: FlTitlesData(
+            bottomTitles: AxisTitles(
+              sideTitles: bottomTitles,
+            ),
+            leftTitles: AxisTitles(
+              sideTitles: leftTitles(),
+            ),
+          ),
+          borderData: FlBorderData(
+            show: true,
+            border: Border.all(color: const Color(0xff37434d)),
+          ),
+          minX: 0,
+          maxX: (monthlyData.length - 1).toDouble(),
+          minY: 0,
+          maxY: getMaxY(monthlyData),
+          lineBarsData: [
+            LineChartBarData(
+              spots: getSpots(monthlyData, 'spend'),
+              isCurved: true,
+              color: Colors.red,
+              barWidth: 4,
+              isStrokeCapRound: true,
+              dotData: FlDotData(show: false),
+              belowBarData: BarAreaData(show: false),
+            ),
+            LineChartBarData(
+              spots: getSpots(monthlyData, 'earn'),
+              isCurved: true,
+              color: Colors.green,
+              barWidth: 4,
+              isStrokeCapRound: true,
+              dotData: FlDotData(show: false),
+              belowBarData: BarAreaData(show: false),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  double getMaxY(List<Map<String, dynamic>> data) {
+    double maxY = 0;
+    for (var entry in data) {
+      if (entry['spend'] > maxY) {
+        maxY = entry['spend'];
+      }
+      if (entry['earn'] > maxY) {
+        maxY = entry['earn'];
+      }
+    }
+    return maxY;
+  }
+
+  List<FlSpot> getSpots(List<Map<String, dynamic>> data, String key) {
+    return List.generate(data.length, (index) {
+      return FlSpot(index.toDouble(), data[index][key]);
+    });
+  }
+
+  SideTitles get bottomTitles => SideTitles(
+        showTitles: true,
+        reservedSize: 32,
+        interval: 1,
+        getTitlesWidget: (value, meta) {
+          const style = TextStyle(
+            color: Color(0xff68737d),
+            fontWeight: FontWeight.bold,
+            fontSize: 16,
+          );
+          String text;
+          if (value.toInt() >= 0 && value.toInt() < monthlyData.length) {
+            text = monthlyData[value.toInt()]['month'];
+          } else {
+            text = '';
+          }
+          return SideTitleWidget(
+            axisSide: meta.axisSide,
+            space: 10,
+            child: Text(text, style: style),
+          );
+        },
+      );
+
+  SideTitles leftTitles() => SideTitles(
+        showTitles: true,
+        getTitlesWidget: (value, meta) {
+          const style = TextStyle(
+            color: Color(0xff67727d),
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          );
+          return Text(value.toInt().toString(),
+              style: style, textAlign: TextAlign.left);
+        },
+        interval: getMaxY(monthlyData) / 5,
+        reservedSize: 40,
+      );
+}

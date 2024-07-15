@@ -11,12 +11,12 @@ class FirestoreServiceProvider with ChangeNotifier {
     return _firestoreService.searchTransaksi(searchKeyword);
   }
 
-  Stream<List<Transaksi>> getTransaksi(DateTime date) {
-    return _firestoreService.getTransaksi(date);
+  Stream<List<Map<String, dynamic>>> getMonthlySpendEarn() {
+    return _firestoreService.getMonthlySpendEarn();
   }
 
-  Stream<List<Transaksi>> searchTransactionsByActivity(String activityName) {
-    return _firestoreService.searchTransactionsByActivity(activityName);
+  Stream<List<Transaksi>> getTransaksi(DateTime date) {
+    return _firestoreService.getTransaksi(date);
   }
 
   Stream<List<Map<String, dynamic>>> get getSummarizeMonths {

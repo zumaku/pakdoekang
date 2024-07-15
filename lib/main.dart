@@ -54,11 +54,11 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final navigationProvider = Provider.of<NavigationProvider>(context);
     final List<Widget> pages = [
-      TodayPage(),
+      AnalysisPage(),
       SearchPages(),
       Container(), // Just empty page
       ArchivePage(),
-      AnalysisPage(),
+      TodayPage(),
     ];
 
     return Scaffold(

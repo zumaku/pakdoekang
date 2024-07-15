@@ -10,18 +10,27 @@ import 'package:provider/provider.dart';
 class TopCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final firestoreServiceProvider =
-        Provider.of<FirestoreServiceProvider>(context);
+    final firestoreServiceProvider = Provider.of<FirestoreServiceProvider>(context);
+
+    firestoreServiceProvider.allTransaksi.listen((data) {
+      print('Received data: $data');
+    }, onError: (error) {
+      print('Error: $error');
+    });
+
     return StreamBuilder<List<Transaksi>>(
       stream: firestoreServiceProvider.allTransaksi,
       builder: (context, snapshot) {
+        print('TopCategory stream state: ${snapshot.connectionState}');
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
+          print('TopCategory stream error: ${snapshot.error}');
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
           return Center(child: Text('No data available'));
         } else {
+          print('TopCategory stream data: ${snapshot.data}');
           return _buildPieChart(snapshot.data!);
         }
       },
@@ -33,7 +42,6 @@ class TopCategory extends StatelessWidget {
 
     return Container(
         padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-        margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(15),
@@ -56,7 +64,7 @@ class TopCategory extends StatelessWidget {
               }).toList(),
             ),
             AspectRatio(
-              aspectRatio: 1,
+              aspectRatio: 1 / .7,
               child: PieChart(
                 PieChartData(
                   sections: _getPieChartSections(topCategories),

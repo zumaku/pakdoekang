@@ -24,8 +24,11 @@ class FirestoreService {
   }
 
   Stream<List<Transaksi>> getAllTransaksi() {
-    return transactions.snapshots().map((snapshot) =>
-        snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList());
+    return transactions.snapshots().map((snapshot) {
+      print('=== Kode dari Fecthing getAllTransaksi data ===');
+      print('Fetched getAllTransaksi snapshot: ${snapshot.docs.length}');
+      return snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList();
+    });
   }
 
   Stream<List<Transaksi>> searchTransaksi(String searchKeyword) {
@@ -36,6 +39,59 @@ class FirestoreService {
               .toLowerCase()
               .contains(searchKeyword.toLowerCase()))
           .toList();
+    });
+  }
+
+  Stream<List<Map<String, dynamic>>> getMonthlySpendEarn() {
+    return transactions.snapshots().map((snapshot) {
+      Map<String, Map<String, double>> monthlyData = {};
+
+      // Get the current date and calculate the date for three months ago
+      DateTime now = DateTime.now();
+      DateTime threeMonthsAgo = DateTime(now.year, now.month - 5, 1);
+
+      print('=== Kode dari Fecthing getMonthlySpendEarn data ===');
+      print('Fetched getMonthlySpendEarn snapshot: ${snapshot.docs.length}');
+
+      for (var doc in snapshot.docs) {
+        Transaksi transaksi = Transaksi.fromFirestore(doc);
+        // Filter out transactions older than three months
+        if (transaksi.tanggal.isBefore(threeMonthsAgo)) {
+          continue;
+        }
+
+        // String month = "${transaksi.tanggal.year}-${transaksi.tanggal.month}";
+        String month = "${transaksi.tanggal.month}";
+
+        if (!monthlyData.containsKey(month)) {
+          monthlyData[month] = {"spend": 0, "earn": 0};
+        }
+
+        if (transaksi.isPengeluaran) {
+          monthlyData[month]!["spend"] =
+              (monthlyData[month]!["spend"] ?? 0) + transaksi.jumlah;
+        } else {
+          monthlyData[month]!["earn"] =
+              (monthlyData[month]!["earn"] ?? 0) + transaksi.jumlah;
+        }
+      }
+
+      // Sort monthlyData by month and keep only the last three months
+      List<MapEntry<String, Map<String, double>>> sortedEntries =
+          monthlyData.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
+
+      List<Map<String, dynamic>> result = [];
+      for (int i = (sortedEntries.length - 6).clamp(0, sortedEntries.length);
+          i < sortedEntries.length;
+          i++) {
+        result.add({
+          "month": sortedEntries[i].key,
+          "spend": sortedEntries[i].value["spend"]!,
+          "earn": sortedEntries[i].value["earn"]!,
+        });
+      }
+
+      return result;
     });
   }
 
@@ -50,14 +106,6 @@ class FirestoreService {
 
       return filteredTransactions;
     });
-  }
-
-  Stream<List<Transaksi>> searchTransactionsByActivity(String activityName) {
-    return transactions
-        .where('aktifitas', isEqualTo: activityName)
-        .snapshots()
-        .map((snapshot) =>
-            snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList());
   }
 
   bool _isSameDay(DateTime date1, DateTime date2) {
