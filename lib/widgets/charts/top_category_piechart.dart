@@ -13,16 +13,25 @@ class TopCategory extends StatelessWidget {
     final firestoreServiceProvider =
         Provider.of<FirestoreServiceProvider>(context);
 
+    firestoreServiceProvider.allTransaksi.listen((data) {
+      print('Received data: $data');
+    }, onError: (error) {
+      print('Error: $error');
+    });
+
     return StreamBuilder<List<Transaksi>>(
       stream: firestoreServiceProvider.allTransaksi,
       builder: (context, snapshot) {
+        print('TopCategory stream state: ${snapshot.connectionState}');
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasError) {
+          print('TopCategory stream error: ${snapshot.error}');
           return Center(child: Text('Error: ${snapshot.error}'));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
           return Center(child: Text('No data available'));
         } else {
+          print('TopCategory stream data: ${snapshot.data}');
           return _buildPieChart(snapshot.data!);
         }
       },
@@ -79,7 +88,7 @@ class TopCategory extends StatelessWidget {
       }
     }
 
-    // Get the top 3 categories
+    // Get the top 5 categories
     var sortedCategories = categoryCount.entries.toList()
       ..sort((a, b) => b.value.compareTo(a.value));
     return sortedCategories.take(5).toList();
@@ -89,7 +98,7 @@ class TopCategory extends StatelessWidget {
       List<MapEntry<String, int>> topCategories) {
     return List.generate(topCategories.length, (i) {
       final category = topCategories[i];
-      final isTouched = false;
+      final bool isTouched = false;
       final double fontSize = isTouched ? 25 : 16;
       final double radius = isTouched ? 60 : 50;
 
@@ -101,7 +110,6 @@ class TopCategory extends StatelessWidget {
         titleStyle: MyText.getButtonThreeStyle(color: Colors.white),
         badgeWidget: MyCategoryIcon.getCategoryIcon(category.key),
         badgePositionPercentageOffset: 1.1,
-        // titlePositionPercentageOffset: .,
       );
     });
   }
