@@ -17,26 +17,30 @@ class TopCategory extends StatelessWidget {
       stream: firestoreServiceProvider.allTransaksi,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-           return SkeletonLoader(
-          builder: Container(
-            height: 400,
-            margin: EdgeInsets.symmetric(vertical: 10.0),
-            decoration: BoxDecoration(
-              color: MyColor.base2,
-              borderRadius: BorderRadius.circular(16),
-            ),
-          ),
-          baseColor: MyColor.disable2,
-          highlightColor: MyColor.disable1,
-          items: 1,
-          period: Duration(seconds: 2),
-        );
+          return Padding(
+              padding: EdgeInsets.all(10),
+              child: SkeletonLoader(
+                builder: Container(
+                  height: 400,
+                  margin: EdgeInsets.symmetric(vertical: 10.0),
+                  decoration: BoxDecoration(
+                    color: MyColor.base2,
+                    borderRadius: BorderRadius.circular(16),
+                  ),
+                ),
+                items: 1,
+                period: Duration(seconds: 2),
+              ));
         } else if (snapshot.hasError) {
           return Center(
-              child: Container(height: 300, child: MyText.paragraphOne('Error ${snapshot.error}')));
+              child: Container(
+                  height: 300,
+                  child: MyText.paragraphOne('Error ${snapshot.error}')));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
           return Center(
-              child: Container(height: 300, child: MyText.paragraphOne('No data available')));
+              child: Container(
+                  height: 300,
+                  child: MyText.paragraphOne('No data available')));
         } else {
           return _buildPieChart(snapshot.data!);
         }

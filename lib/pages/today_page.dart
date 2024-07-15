@@ -48,7 +48,8 @@ class TodayPage extends StatelessWidget {
                             }
                             if (snapshot.hasError) {
                               return Center(
-                                  child: MyText.paragraphOne('Error: ${snapshot.error}'));
+                                  child: MyText.paragraphOne(
+                                      'Error: ${snapshot.error}'));
                             }
                             if (!snapshot.hasData || snapshot.data!.isEmpty) {
                               return Container(
