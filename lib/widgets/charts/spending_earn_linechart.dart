@@ -6,6 +6,7 @@ import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
+import 'package:skeleton_loader/skeleton_loader.dart';
 
 class SpendEarnLineChart extends StatelessWidget {
   @override
@@ -16,11 +17,25 @@ class SpendEarnLineChart extends StatelessWidget {
       stream: firestoreServiceProvider.getMonthlySpendEarn(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+          return SkeletonLoader(
+          builder: Container(
+            height: 400,
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            decoration: BoxDecoration(
+              color: MyColor.base2,
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+          baseColor: MyColor.disable2,
+          highlightColor: MyColor.disable1,
+          items: 1,
+          period: Duration(seconds: 2),
+        );
         }
 
         if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Center(child: Text('No data available'));
+          return Center(
+              child: Container(height: 300, child: MyText.paragraphOne('No data available')));
         }
 
         final data = snapshot.data!;

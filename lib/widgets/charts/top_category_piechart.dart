@@ -6,6 +6,7 @@ import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
+import 'package:skeleton_loader/skeleton_loader.dart';
 
 class TopCategory extends StatelessWidget {
   @override
@@ -16,11 +17,26 @@ class TopCategory extends StatelessWidget {
       stream: firestoreServiceProvider.allTransaksi,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CircularProgressIndicator());
+           return SkeletonLoader(
+          builder: Container(
+            height: 400,
+            margin: EdgeInsets.symmetric(vertical: 10.0),
+            decoration: BoxDecoration(
+              color: MyColor.base2,
+              borderRadius: BorderRadius.circular(16),
+            ),
+          ),
+          baseColor: MyColor.disable2,
+          highlightColor: MyColor.disable1,
+          items: 1,
+          period: Duration(seconds: 2),
+        );
         } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}'));
+          return Center(
+              child: Container(height: 300, child: MyText.paragraphOne('Error ${snapshot.error}')));
         } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-          return Center(child: Text('No data available'));
+          return Center(
+              child: Container(height: 300, child: MyText.paragraphOne('No data available')));
         } else {
           return _buildPieChart(snapshot.data!);
         }
