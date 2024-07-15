@@ -18,4 +18,9 @@ class MyColor {
   static const Color base3 = Color(0xFF7F7F7F);
   static const Color base2 = Color(0xFF959595);
   static const Color base1 = Color(0xFFE7E7E7);
+
+  static const Color disable4 = Color(0xD7D7D7D7);
+  static const Color disable3 = Color(0xC9C9C9C9);
+  static const Color disable2 = Color(0xB5B5B5B5);
+  static const Color disable1 = Color(0xA3A3A3A3);
 }
