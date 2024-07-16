@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';
+import 'package:pakdoekang/widgets/charts/activity_heatmap.dart';
 import 'package:pakdoekang/widgets/charts/spending_earn_linechart.dart';
 import 'package:pakdoekang/widgets/charts/top_category_piechart.dart';
 
@@ -24,6 +25,7 @@ class _AnalysisPageState extends State<AnalysisPage> {
     final List<Widget> charts = [
       SpendEarnLineChart(),
       TopCategory(),
+      ActivityHeatmap(),
     ];
 
     return SingleChildScrollView(
