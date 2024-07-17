@@ -53,7 +53,7 @@ class _SearchPagesState extends State<SearchPages> {
                   // Customize your skeleton loader here
                   builder: Container(
                     height: 100,
-                    margin: EdgeInsets.symmetric(vertical: 10.0),
+                    margin: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: MyColor.base5,
                       borderRadius: BorderRadius.circular(16),
