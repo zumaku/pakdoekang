@@ -11,7 +11,7 @@ import '../../widgets/styles/my_text.dart';
 
 class ArchiveMonthsPage extends StatelessWidget {
   final bool isArchiveMonts;
-  final Function(bool, int) onItemTapped;
+  final Function(bool, int, int) onItemTapped;
 
   ArchiveMonthsPage({
     required this.isArchiveMonts,
@@ -77,8 +77,11 @@ class ArchiveMonthsPage extends StatelessWidget {
               children: summaries.map((data) {
                 return GestureDetector(
                   onTap: () {
-                    onItemTapped(false,
-                        int.parse(DateFormat('M').format(data['datetime'])));
+                    onItemTapped(
+                        false,
+                        int.parse(DateFormat('M').format(data['datetime'])),
+                        int.parse(DateFormat('yyyy').format(data['datetime'])));
+                    // print(int.parse(DateFormat('yyyy').format(data['datetime'])));
                   },
                   child: Container(
                     // margin: EdgeInsets.only(bottom: 16),
@@ -159,7 +162,9 @@ class ArchiveMonthsPage extends StatelessWidget {
                                         } else if (idx < 3) {
                                           return Positioned(
                                             right: idx * 23.0,
-                                            child: MyCategoryIcon.getCategoryIcon(category),
+                                            child:
+                                                MyCategoryIcon.getCategoryIcon(
+                                                    category),
                                           );
                                         } else {
                                           return Container();

@@ -11,8 +11,10 @@ import 'package:skeleton_loader/skeleton_loader.dart';
 
 class ArchiveDetail extends StatefulWidget {
   final int selectedMonth;
+  final int selectedYear;
 
-  const ArchiveDetail({super.key, required this.selectedMonth});
+  const ArchiveDetail(
+      {super.key, required this.selectedMonth, required this.selectedYear});
 
   @override
   State<ArchiveDetail> createState() => ArchiveDetailState();
@@ -24,13 +26,13 @@ class ArchiveDetailState extends State<ArchiveDetail> {
   @override
   void initState() {
     super.initState();
-    _selectedDate = DateTime(DateTime.now().year, widget.selectedMonth, 1);
+    _selectedDate = DateTime(widget.selectedYear, widget.selectedMonth, 1);
   }
 
   @override
   Widget build(BuildContext context) {
     DateTime dateActive =
-        DateTime(DateTime.now().year, widget.selectedMonth, 1);
+        DateTime(widget.selectedYear, widget.selectedMonth, 1);
 
     int getDaysInMonth() {
       var nextMonth = DateTime(dateActive.year, dateActive.month + 1, 1);
@@ -56,6 +58,7 @@ class ArchiveDetailState extends State<ArchiveDetail> {
                 dateTextStyle: MyText.getHeadingFiveStyle(),
                 onDateChange: (date) {
                   // New date selected
+                  // print(date);
                   setState(() {
                     _selectedDate = date;
                   });

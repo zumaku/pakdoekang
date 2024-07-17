@@ -11,11 +11,13 @@ class ArchivePage extends StatefulWidget {
 
 class _ArchivePageState extends State<ArchivePage> {
   int _selectedMonth = DateTime.now().month;
+  int _selectedYear = DateTime.now().year;
 
-  void _onItemTapped(bool isArchiveMonths, int selectedMonth) {
+  void _onItemTapped(bool isArchiveMonths, int selectedMonth, int selectedYear) {
     final navigationProvider = Provider.of<NavigationProvider>(context, listen: false);
     setState(() {
       _selectedMonth = selectedMonth;
+      _selectedYear = selectedYear;
     });
     navigationProvider.setArchiveState(isArchiveMonths);
   }
@@ -28,7 +30,7 @@ class _ArchivePageState extends State<ArchivePage> {
     return Scaffold(
       body: _isArchiveMonths
           ? ArchiveMonthsPage(onItemTapped: _onItemTapped, isArchiveMonts: _isArchiveMonths)
-          : ArchiveDetail(selectedMonth: _selectedMonth),
+          : ArchiveDetail(selectedMonth: _selectedMonth, selectedYear: _selectedYear),
     );
   }
 }

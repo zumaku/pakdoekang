@@ -102,6 +102,7 @@ class FirestoreService {
           .where((transaction) => _isSameDay(transaction.tanggal, date))
           .toList();
 
+      print(filteredTransactions);
       filteredTransactions.sort((a, b) => b.tanggal.compareTo(a.tanggal));
 
       return filteredTransactions;

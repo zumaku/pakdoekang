@@ -12,7 +12,7 @@ class AppServiceProvider with ChangeNotifier {
   void listenToAboutLinks() {
     aboutLinksStream.listen((data) {
       // Handle the incoming data
-      print(data);
+      // print(data);
       notifyListeners();
     });
   }
