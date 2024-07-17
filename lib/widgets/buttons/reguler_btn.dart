@@ -13,6 +13,7 @@ class MyRegulerBtn extends StatelessWidget {
   final Color borderColor;
   final double borderRadius;
   final EdgeInsets padding;
+  final bool isFullWidth; // New parameter
 
   const MyRegulerBtn({
     Key? key,
@@ -25,6 +26,7 @@ class MyRegulerBtn extends StatelessWidget {
     this.borderColor = Colors.transparent,
     this.borderRadius = 6.0,
     this.padding = const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+    this.isFullWidth = false, // Default to false
   }) : super(key: key);
 
   @override
@@ -46,26 +48,28 @@ class MyRegulerBtn extends StatelessWidget {
 
     return GestureDetector(
       onTap: onTap,
-      child: IntrinsicWidth(
-        child: Container(
-          decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(borderRadius),
-              border: Border.all(
-                color: borderColor,
-                width: 1.5,
-              )),
-          padding: padding,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              if (icon != null) ...[
-                icon!,
-                SizedBox(width: 10.0),
-              ],
-              textWidget,
-            ],
+      child: Container(
+        width: isFullWidth
+            ? double.infinity
+            : null, // Adjust width based on isFullWidth
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(borderRadius),
+          border: Border.all(
+            color: borderColor,
+            width: 1.5,
           ),
+        ),
+        padding: padding,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (icon != null) ...[
+              icon!,
+              SizedBox(width: 10.0),
+            ],
+            textWidget,
+          ],
         ),
       ),
     );
@@ -76,6 +80,7 @@ class MyRegulerBtn extends StatelessWidget {
     required String text,
     VoidCallback? onTap,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -87,6 +92,7 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.brand,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+      isFullWidth: isFullWidth,
     );
   }
 
@@ -94,6 +100,7 @@ class MyRegulerBtn extends StatelessWidget {
     required String text,
     VoidCallback? onTap,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -105,6 +112,7 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.brand,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 14.0),
+      isFullWidth: isFullWidth,
     );
   }
 
@@ -112,6 +120,7 @@ class MyRegulerBtn extends StatelessWidget {
     required String text,
     VoidCallback? onTap,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -123,6 +132,7 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.brand,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
+      isFullWidth: isFullWidth,
     );
   }
 
@@ -130,6 +140,7 @@ class MyRegulerBtn extends StatelessWidget {
     required String text,
     VoidCallback? onTap,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -141,6 +152,7 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.base5,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+      isFullWidth: isFullWidth,
     );
   }
 
@@ -148,6 +160,7 @@ class MyRegulerBtn extends StatelessWidget {
     required String text,
     VoidCallback? onTap,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -159,6 +172,7 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.base5,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 14.0),
+      isFullWidth: isFullWidth,
     );
   }
 
@@ -166,6 +180,7 @@ class MyRegulerBtn extends StatelessWidget {
     required String text,
     VoidCallback? onTap,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -177,12 +192,14 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.base5,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
+      isFullWidth: isFullWidth,
     );
   }
 
   static MyRegulerBtn disableLarge({
     required String text,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -194,12 +211,14 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+      isFullWidth: isFullWidth,
     );
   }
 
   static MyRegulerBtn disableMedium({
     required String text,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -211,12 +230,14 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 14.0),
+      isFullWidth: isFullWidth,
     );
   }
 
   static MyRegulerBtn disableSmall({
     required String text,
     Widget? icon,
+    bool isFullWidth = false,
   }) {
     return MyRegulerBtn(
       text: text,
@@ -228,6 +249,7 @@ class MyRegulerBtn extends StatelessWidget {
       borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
+      isFullWidth: isFullWidth,
     );
   }
 }
