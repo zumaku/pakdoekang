@@ -65,7 +65,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       case 3:
         return 'Arsip';
       case 4:
-        return 'Masukan';
+        return 'Analisis';
       default:
         return 'Halaman Tidak Ditemukan';
     }

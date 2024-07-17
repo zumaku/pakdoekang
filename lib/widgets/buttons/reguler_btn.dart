@@ -198,6 +198,8 @@ class MyRegulerBtn extends StatelessWidget {
 
   static MyRegulerBtn disableLarge({
     required String text,
+    Color textColor = MyColor.base2,
+    Color backgroundColor = MyColor.base1,
     Widget? icon,
     bool isFullWidth = false,
   }) {
@@ -205,9 +207,9 @@ class MyRegulerBtn extends StatelessWidget {
       text: text,
       icon: icon,
       onTap: null,
-      color: MyColor.base1,
+      color: backgroundColor,
       textType: 1,
-      textColor: MyColor.base2,
+      textColor: textColor,
       borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
@@ -217,6 +219,8 @@ class MyRegulerBtn extends StatelessWidget {
 
   static MyRegulerBtn disableMedium({
     required String text,
+    Color textColor = MyColor.base2,
+    Color backgroundColor = MyColor.base1,
     Widget? icon,
     bool isFullWidth = false,
   }) {
@@ -224,9 +228,9 @@ class MyRegulerBtn extends StatelessWidget {
       text: text,
       icon: icon,
       onTap: null,
-      color: MyColor.base1,
+      color: backgroundColor,
       textType: 2,
-      textColor: MyColor.base2,
+      textColor: textColor,
       borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 6.0, horizontal: 14.0),
@@ -236,6 +240,8 @@ class MyRegulerBtn extends StatelessWidget {
 
   static MyRegulerBtn disableSmall({
     required String text,
+    Color textColor = MyColor.base2,
+    Color backgroundColor = MyColor.base1,
     Widget? icon,
     bool isFullWidth = false,
   }) {
@@ -243,9 +249,9 @@ class MyRegulerBtn extends StatelessWidget {
       text: text,
       icon: icon,
       onTap: null,
-      color: MyColor.base1,
+      color: backgroundColor,
       textType: 3,
-      textColor: MyColor.base2,
+      textColor: textColor,
       borderColor: MyColor.base1,
       borderRadius: 6.0,
       padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 12.0),
