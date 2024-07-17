@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/services/firestore.dart';
+import 'package:provider/provider.dart';
 
 class FirestoreServiceProvider with ChangeNotifier {
-  final FirestoreService _firestoreService = FirestoreService();
+  late FirestoreService _firestoreService;
+
+  FirestoreServiceProvider(BuildContext context) {
+    _firestoreService = FirestoreService(context);
+  }
 
   Stream<List<Transaksi>> get allTransaksi =>
       _firestoreService.getAllTransaksi();

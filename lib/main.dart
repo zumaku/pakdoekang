@@ -26,7 +26,8 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => AuthServiceProvider()),
-        ChangeNotifierProvider(create: (_) => FirestoreServiceProvider()),
+        ChangeNotifierProvider(
+            create: (context) => FirestoreServiceProvider(context)),
         ChangeNotifierProvider(create: (_) => AppServiceProvider()),
         ChangeNotifierProvider(create: (_) => DummyProvider()),
         ChangeNotifierProvider(create: (_) => NavigationProvider()),

@@ -1,7 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:flutter/material.dart';
+import 'package:pakdoekang/services/auth_service_provider.dart';
+import 'package:provider/provider.dart';
 
 class FirestoreService {
+  final BuildContext context;
+  FirestoreService(this.context);
+
+  String? get uid {
+    final authProvider = Provider.of<AuthServiceProvider>(context, listen: false);
+    return authProvider.user?.uid;
+  }
+
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   CollectionReference get transactions => _db.collection('transaksi');
@@ -10,6 +21,7 @@ class FirestoreService {
       DateTime tanggal, List<dynamic> kategori, String catatan) async {
     try {
       await transactions.add({
+        'uid': uid,
         'aktifitas': aktifitas,
         'jumlah': jumlah,
         'isPengeluaran': isPengeluaran,
@@ -24,7 +36,7 @@ class FirestoreService {
   }
 
   Stream<List<Transaksi>> getAllTransaksi() {
-    return transactions.snapshots().map((snapshot) {
+    return transactions.where('uid', isEqualTo: uid).snapshots().map((snapshot) {
       print('=== Kode dari Fecthing getAllTransaksi data ===');
       print('Fetched getAllTransaksi snapshot: ${snapshot.docs.length}');
       return snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList();
@@ -32,7 +44,10 @@ class FirestoreService {
   }
 
   Stream<List<Transaksi>> searchTransaksi(String searchKeyword) {
-    return transactions.snapshots().map((snapshot) {
+    return transactions
+        .where('uid', isEqualTo: uid)
+        .snapshots()
+        .map((snapshot) {
       return snapshot.docs
           .map((doc) => Transaksi.fromFirestore(doc))
           .where((transaksi) => transaksi.aktifitas
@@ -43,10 +58,12 @@ class FirestoreService {
   }
 
   Stream<List<Map<String, dynamic>>> getMonthlySpendEarn() {
-    return transactions.snapshots().map((snapshot) {
+    return transactions
+        .where('uid', isEqualTo: uid)
+        .snapshots()
+        .map((snapshot) {
       Map<String, Map<String, double>> monthlyData = {};
 
-      // Get the current date and calculate the date for three months ago
       DateTime now = DateTime.now();
       DateTime threeMonthsAgo = DateTime(now.year, now.month - 5, 1);
 
@@ -55,12 +72,10 @@ class FirestoreService {
 
       for (var doc in snapshot.docs) {
         Transaksi transaksi = Transaksi.fromFirestore(doc);
-        // Filter out transactions older than three months
         if (transaksi.tanggal.isBefore(threeMonthsAgo)) {
           continue;
         }
 
-        // String month = "${transaksi.tanggal.year}-${transaksi.tanggal.month}";
         String month = "${transaksi.tanggal.month}";
 
         if (!monthlyData.containsKey(month)) {
@@ -76,7 +91,6 @@ class FirestoreService {
         }
       }
 
-      // Sort monthlyData by month and keep only the last three months
       List<MapEntry<String, Map<String, double>>> sortedEntries =
           monthlyData.entries.toList()..sort((a, b) => a.key.compareTo(b.key));
 
@@ -96,7 +110,10 @@ class FirestoreService {
   }
 
   Stream<List<Transaksi>> getTransaksi(DateTime date) {
-    return transactions.snapshots().map((snapshot) {
+    return transactions
+        .where('uid', isEqualTo: uid)
+        .snapshots()
+        .map((snapshot) {
       List<Transaksi> filteredTransactions = snapshot.docs
           .map((doc) => Transaksi.fromFirestore(doc))
           .where((transaction) => _isSameDay(transaction.tanggal, date))
@@ -118,7 +135,7 @@ class FirestoreService {
   Stream<List<Map<String, dynamic>>> getSummarizeMonths() async* {
     Map<String, Map<String, dynamic>> monthlySummary = {};
 
-    var snapshot = await transactions.get();
+    var snapshot = await transactions.where('uid', isEqualTo: uid).get();
 
     for (var doc in snapshot.docs) {
       var transaksi = Transaksi.fromFirestore(doc);
@@ -180,6 +197,7 @@ class FirestoreService {
       String catatan) async {
     try {
       await transactions.doc(id).update({
+        'uid': uid,
         'aktifitas': aktifitas,
         'jumlah': jumlah,
         'isPengeluaran': isPengeluaran,
