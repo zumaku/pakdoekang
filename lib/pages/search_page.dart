@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/models/transaksiku.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/cards/activity_card.dart';
 import 'package:pakdoekang/widgets/form/input_form.dart';
@@ -44,8 +46,8 @@ class _SearchPagesState extends State<SearchPages> {
           ),
         ),
         Expanded(
-          child: StreamBuilder<List<Transaksi>>(
-            stream: Provider.of<FirestoreServiceProvider>(context)
+          child: StreamBuilder<List<Transaksiku>>(
+            stream: Provider.of<ApiServiceProvider>(context)
                 .searchTransaksi(_searchKeyword),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
@@ -77,12 +79,12 @@ class _SearchPagesState extends State<SearchPages> {
                 );
               }
 
-              final List<Transaksi> transactions = snapshot.data!;
+              final List<Transaksiku> transactions = snapshot.data!;
 
               return ListView.builder(
                 itemCount: transactions.length,
                 itemBuilder: (context, index) {
-                  Transaksi transaction = transactions[index];
+                  Transaksiku transaction = transactions[index];
                   return Padding(
                       padding: EdgeInsets.symmetric(horizontal: 14),
                       child: ActivityCard(

@@ -4,6 +4,7 @@ import 'package:pakdoekang/pages/archive_page.dart';
 import 'package:pakdoekang/pages/analysis_page.dart';
 import 'package:pakdoekang/pages/search_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/services/navbar_provider.dart';
 import 'package:pakdoekang/widgets/my_bottom_navbar.dart';
@@ -22,6 +23,7 @@ void main() async {
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => FirestoreServiceProvider()),
+        ChangeNotifierProvider(create: (_) => ApiServiceProvider()),
         ChangeNotifierProvider(create: (_) => DummyProvider()),
         ChangeNotifierProvider(create: (_) => NavigationProvider()),
       ],

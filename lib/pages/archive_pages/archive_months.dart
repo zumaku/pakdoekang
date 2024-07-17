@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -21,7 +22,7 @@ class ArchiveMonthsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<List<Map<String, dynamic>>>(
-      stream: Provider.of<FirestoreServiceProvider>(context).getSummarizeMonths,
+      stream: Provider.of<ApiServiceProvider>(context).getSummarizeMonths(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Column(children: [

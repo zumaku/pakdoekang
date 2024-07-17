@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:pakdoekang/services/firestore_service_provider.dart';
-import 'package:pakdoekang/services/firestore.dart';
+import 'package:pakdoekang/models/transaksiku.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/widgets/cards/activity_card.dart';
 import 'package:pakdoekang/widgets/cards/daily_spend_card.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -13,12 +13,12 @@ import 'package:skeleton_loader/skeleton_loader.dart';
 class TodayPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final apiServiceProvider = Provider.of<ApiServiceProvider>(context);
     return Center(
         child: SingleChildScrollView(
             child: SafeArea(
                 minimum: EdgeInsets.all(20),
                 child: Column(
-                    // mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       DailySpendCard(),
@@ -26,9 +26,9 @@ class TodayPage extends StatelessWidget {
                       MyText.headingSix("Aktifitas",
                           textAlign: TextAlign.start),
                       SizedBox(height: 13),
-                      StreamBuilder<List<Transaksi>>(
-                          stream: Provider.of<FirestoreServiceProvider>(context)
-                              .getTransaksi(DateTime.now()),
+                      StreamBuilder<List<Transaksiku>>(
+                          stream: apiServiceProvider
+                              .getTransaksiByDate(DateTime.now()),
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {

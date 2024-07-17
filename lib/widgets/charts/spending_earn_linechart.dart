@@ -1,6 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
@@ -10,10 +11,10 @@ import 'package:skeleton_loader/skeleton_loader.dart';
 class SpendEarnLineChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final firestoreServiceProvider =
-        Provider.of<FirestoreServiceProvider>(context);
+    final apiServiceProvider =
+        Provider.of<ApiServiceProvider>(context);
     return StreamBuilder<List<Map<String, dynamic>>>(
-      stream: firestoreServiceProvider.getMonthlySpendEarn(),
+      stream: apiServiceProvider.getMonthlySpendEarn(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Padding(

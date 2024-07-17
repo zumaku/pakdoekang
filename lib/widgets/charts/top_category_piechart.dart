@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:pakdoekang/models/transaksiku.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/my_category_icons.dart';
@@ -11,10 +13,10 @@ import 'package:skeleton_loader/skeleton_loader.dart';
 class TopCategory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final firestoreServiceProvider =
-        Provider.of<FirestoreServiceProvider>(context);
-    return StreamBuilder<List<Transaksi>>(
-      stream: firestoreServiceProvider.allTransaksi,
+    final apiServiceProvider =
+        Provider.of<ApiServiceProvider>(context);
+    return StreamBuilder<List<Transaksiku>>(
+      stream: apiServiceProvider.allTransaksi,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Padding(
@@ -48,7 +50,7 @@ class TopCategory extends StatelessWidget {
     );
   }
 
-  Widget _buildPieChart(List<Transaksi> transactions) {
+  Widget _buildPieChart(List<Transaksiku> transactions) {
     var topCategories = _getTopCategories(transactions);
 
     return Container(
@@ -89,7 +91,7 @@ class TopCategory extends StatelessWidget {
         ));
   }
 
-  List<MapEntry<String, int>> _getTopCategories(List<Transaksi> transactions) {
+  List<MapEntry<String, int>> _getTopCategories(List<Transaksiku> transactions) {
     Map<String, int> categoryCount = {};
 
     // Process each transaction to count categories

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
+import 'package:pakdoekang/models/transaksiku.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -13,9 +15,9 @@ class ActivityHeatmap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final transactionStream =
-        context.watch<FirestoreServiceProvider>().allTransaksi;
+        context.watch<ApiServiceProvider>().allTransaksi;
 
-    return StreamBuilder<List<Transaksi>>(
+    return StreamBuilder<List<Transaksiku>>(
       stream: transactionStream,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -42,7 +44,7 @@ class ActivityHeatmap extends StatelessWidget {
                   child: MyText.paragraphOne('Error ${snapshot.error}')));
         }
 
-        List<Transaksi> transactions = snapshot.data ?? [];
+        List<Transaksiku> transactions = snapshot.data ?? [];
 
         // Step 1: Calculate daily transaction counts
         Map<DateTime, int> dailyCounts = {};

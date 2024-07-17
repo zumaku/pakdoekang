@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/icon_button.dart';
 import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';
@@ -96,8 +97,7 @@ class _ActivityFormState extends State<ActivityForm> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
-      final provider =
-          Provider.of<FirestoreServiceProvider>(context, listen: false);
+      final provider = Provider.of<ApiServiceProvider>(context, listen: false);
 
       try {
         await provider.addTransaksi(
@@ -135,6 +135,7 @@ class _ActivityFormState extends State<ActivityForm> {
             behavior: SnackBarBehavior.floating,
           ),
         );
+        Navigator.pop(context);
       }
     }
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/icon_button.dart';
 import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';
@@ -120,8 +121,7 @@ class _EditActivityFormState extends State<EditActivityForm> {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
 
-      final provider =
-          Provider.of<FirestoreServiceProvider>(context, listen: false);
+      final provider = Provider.of<ApiServiceProvider>(context, listen: false);
 
       try {
         await provider.updateTransaksi(
@@ -169,10 +169,10 @@ class _EditActivityFormState extends State<EditActivityForm> {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-                  borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(15),
-            topRight: Radius.circular(15),
-          ),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
       ),
       child: Form(
         key: _formKey,
@@ -225,8 +225,7 @@ class _EditActivityFormState extends State<EditActivityForm> {
               ),
             ),
             CategorySelector(
-              selectedCategories: _selectedCategories
-                  .cast<String>(),
+              selectedCategories: _selectedCategories.cast<String>(),
               onCategoryTap: _handleCategoryTap,
             ),
             Padding(

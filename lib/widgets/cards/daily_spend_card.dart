@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:pakdoekang/controllers/currency_format.dart';
+import 'package:pakdoekang/models/transaksiku.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore.dart';
-import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_shadow.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
@@ -20,9 +21,9 @@ class DailySpendCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<List<Transaksi>>(
+    return StreamBuilder<List<Transaksiku>>(
       stream:
-          Provider.of<FirestoreServiceProvider>(context).getTransaksi(today),
+          Provider.of<ApiServiceProvider>(context).getTransaksiByDate(today),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return SkeletonLoader(
@@ -51,11 +52,11 @@ class DailySpendCard extends StatelessWidget {
         //   return Center(child: Text('No transactions found for today.'));
         // }
 
-        List<Transaksi> transactions = snapshot.data!;
+        List<Transaksiku> transactions = snapshot.data!;
         double totalPengeluaran = 0.0;
         double totalPemasukan = 0.0;
 
-        for (Transaksi transaction in transactions) {
+        for (Transaksiku transaction in transactions) {
           if (transaction.isPengeluaran) {
             totalPengeluaran += transaction.jumlah;
           } else {

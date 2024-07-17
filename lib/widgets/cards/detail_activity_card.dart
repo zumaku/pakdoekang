@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pakdoekang/controllers/currency_format.dart';
 import 'package:pakdoekang/controllers/date_converter.dart';
+import 'package:pakdoekang/services/api_service.dart';
+import 'package:pakdoekang/services/api_service_provider.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/category_btn.dart';
 import 'package:pakdoekang/widgets/buttons/icon_button.dart';
@@ -96,7 +98,7 @@ class DetailActivityCard extends StatelessWidget {
                           MyIconButton.smallBase(
                               onTap: () async {
                                 final provider =
-                                    Provider.of<FirestoreServiceProvider>(
+                                    Provider.of<ApiServiceProvider>(
                                         context,
                                         listen: false);
                                 try {

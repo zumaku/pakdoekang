@@ -44,6 +44,7 @@ dependencies:
   search_page: ^2.3.0
   fl_chart: ^0.68.0
   flutter_heatmap_calendar: ^1.0.5
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:
