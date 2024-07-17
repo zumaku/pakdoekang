@@ -80,7 +80,7 @@ class TopCategory extends StatelessWidget {
               child: PieChart(
                 PieChartData(
                   sections: _getPieChartSections(topCategories),
-                  centerSpaceRadius: 35,
+                  centerSpaceRadius: 50,
                   sectionsSpace: 5,
                 ),
               ),
@@ -111,7 +111,7 @@ class TopCategory extends StatelessWidget {
       final category = topCategories[i];
       final bool isTouched = false;
       final double fontSize = isTouched ? 25 : 16;
-      final double radius = isTouched ? 60 : 50;
+      final double radius = isTouched ? 60 : 60;
 
       return PieChartSectionData(
         color: _getColor(i),

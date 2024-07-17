@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
+import 'package:intl/intl.dart';
 import 'package:pakdoekang/services/firestore.dart';
 import 'package:pakdoekang/services/firestore_service_provider.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
@@ -72,21 +73,47 @@ class ActivityHeatmap extends StatelessWidget {
             children: [
               MyText.headingSix("Intensitas Harian"),
               SizedBox(height: 10),
-              HeatMap(
-                datasets: datasets,
-                colorMode: ColorMode.color,
-                showText: false,
-                scrollable: true,
-                defaultColor: MyColor.base1,
-                colorTipCount: 5,
-                size: 30,
-                colorsets: const {
-                  1: MyColor.brand1,
-                  3: MyColor.brand2,
-                  5: MyColor.brand3,
-                  9: MyColor.brand4,
-                  13: MyColor.brand5,
-                },
+              Align(
+                alignment: Alignment.centerRight,
+                child: HeatMap(
+                  datasets: datasets,
+                  colorMode: ColorMode.color,
+                  showText: false,
+                  scrollable: true,
+                  defaultColor: MyColor.base1,
+                  colorTipCount: 5,
+                  size: 35,
+                  colorsets: const {
+                    1: MyColor.brand1,
+                    3: MyColor.brand2,
+                    5: MyColor.brand3,
+                    9: MyColor.brand4,
+                    13: MyColor.brand5,
+                  },
+                  onClick: (date) {
+                    int activityCount = datasets[date] ?? 0;
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // title: Text("Total Activity"),
+                          title: Text("Total Activity: $activityCount"),
+                          backgroundColor: Colors.white,
+                          content:
+                              Text("At ${DateFormat.yMMMd().format(date)}"),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("OK"),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
               ),
               SizedBox(height: 10),
             ],
