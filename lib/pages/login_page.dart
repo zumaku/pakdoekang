@@ -1,78 +1,91 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pakdoekang/services/auth_service_provider.dart';
 import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
+import 'package:provider/provider.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
 
   @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthServiceProvider>(context);
+
     return Scaffold(
-        body: Container(
-            color: MyColor.base5,
-            child: Stack(
+      body: Container(
+        color: MyColor.base5,
+        child: Stack(
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                SizedBox(height: 60),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 60),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        MyText.headingSix("Pak", color: Colors.white),
-                        MyText.headingSix("doe", color: MyColor.brand3),
-                        MyText.headingSix("kang", color: Colors.white),
-                      ],
-                    ),
-                    SizedBox(height: 50),
-                    Column(
-                      children: [
-                        MyText.headingFour("Belanja mudah,",
-                            color: Colors.white),
-                        MyText.headingFour("catat, dan juga lacak",
-                            color: Colors.white),
-                        MyText.headingFour("keuanganmu.",
-                            color: MyColor.brand3),
-                      ],
-                    ),
+                    MyText.headingSix("Pak", color: Colors.white),
+                    MyText.headingSix("doe", color: MyColor.brand3),
+                    MyText.headingSix("kang", color: Colors.white),
                   ],
                 ),
-                Positioned(
-                    bottom: MediaQuery.of(context).size.height / 4.7,
-                    right: 0,
-                    left: 0,
-                    child: Padding(
-                        padding: EdgeInsets.all(20),
-                        child: SvgPicture.asset(
-                            "assets/images/Illustration.svg"))),
-                Positioned(
-                  bottom: 0,
-                  child: ClipRRect(
-                    child: ClipPath(
-                      clipper: SvgClipper(),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: MediaQuery.of(context).size.height / 2.7,
-                        color: Colors.white,
-                      ),
-                    ),
+                SizedBox(height: 50),
+                Column(
+                  children: [
+                    MyText.headingFour("Belanja mudah,", color: Colors.white),
+                    MyText.headingFour("catat, dan juga lacak",
+                        color: Colors.white),
+                    MyText.headingFour("keuanganmu.", color: MyColor.brand3),
+                  ],
+                ),
+              ],
+            ),
+            Positioned(
+              bottom: MediaQuery.of(context).size.height / 4.7,
+              right: 0,
+              left: 0,
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: SvgPicture.asset("assets/images/Illustration.svg"),
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              child: ClipRRect(
+                child: ClipPath(
+                  clipper: SvgClipper(),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height / 2.7,
+                    color: Colors.white,
                   ),
                 ),
-                Positioned(
-                    bottom: 60,
-                    left: 0,
-                    right: 0,
-                    child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 50),
-                        child: MyRegulerBtn.largeBrand(
-                            text: "Mulai Sekarang", isFullWidth: false)))
-              ],
-            )));
+              ),
+            ),
+            Positioned(
+              bottom: 60,
+              left: 0,
+              right: 0,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 50),
+                child: MyRegulerBtn.largeBrand(
+                  text: "Mulai Sekarang",
+                  isFullWidth: false,
+                  onTap: () => authProvider.signInWithGoogle(),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 

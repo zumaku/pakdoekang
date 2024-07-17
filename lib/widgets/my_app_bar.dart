@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pakdoekang/services/navbar_provider.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
+import 'package:provider/provider.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final int selectedIndex;
@@ -14,12 +16,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final navigationProvider = Provider.of<NavigationProvider>(context);
     String pageName = _getPageTitle(selectedIndex);
-
-    //     borderRadius: BorderRadius.only(
-    //   topRight: Radius.circular(30),
-    //   topLeft: Radius.circular(30),
-    // ),
 
     return PreferredSize(
       preferredSize: Size.fromHeight(kToolbarHeight + 17),
@@ -36,15 +34,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             title: MyText.headingFive(pageName),
             surfaceTintColor: Colors.transparent,
             elevation: 0,
-            actions: <Widget>[
+            actions: [
               IconButton(
                 padding: EdgeInsets.all(10),
                 icon: CircleAvatar(
-                  backgroundImage: AssetImage(profileImage),
+                  backgroundImage: NetworkImage(profileImage),
                 ),
                 onPressed: () {
-                  // Aksi saat foto profil ditekan
-                  // Misalnya, buka profil pengguna
+                  navigationProvider.setIsAccountPageState(true);
                 },
               ),
             ],
@@ -66,6 +63,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         return 'Arsip';
       case 4:
         return 'Analisis';
+      case 5:
+        return 'Profile';
       default:
         return 'Halaman Tidak Ditemukan';
     }
@@ -76,8 +75,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   static AppBarTheme get theme {
     return const AppBarTheme(
-      elevation: 8, // Atur nilai elevation secara global
-      // shadowColor: MyColor.base1, // Atur warna bayangan
+      elevation: 8,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(15),

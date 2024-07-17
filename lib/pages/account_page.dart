@@ -3,15 +3,22 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pakdoekang/services/app_service_provider.dart';
+import 'package:pakdoekang/services/auth_service_provider.dart';
+import 'package:pakdoekang/services/navbar_provider.dart';
 import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class AccountPage extends StatelessWidget {
+class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
 
+  @override
+  State<AccountPage> createState() => _AccountPageState();
+}
+
+class _AccountPageState extends State<AccountPage> {
   void _launchUrlAndExit(String url) async {
     try {
       final uri = Uri.parse(url);
@@ -31,6 +38,10 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authProvider = Provider.of<AuthServiceProvider>(context);
+    final user = authProvider.user;
+    final navigationProvider = Provider.of<NavigationProvider>(context);
+
     return SingleChildScrollView(
       child: SafeArea(
         minimum: EdgeInsets.all(10),
@@ -57,8 +68,8 @@ class AccountPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 50),
-                          MyText.headingSix("Zumaku"),
-                          MyText.paragraphTwo("zulfadli15903@gmail.com"),
+                          MyText.headingSix("${user?.displayName}"),
+                          MyText.paragraphTwo("${user?.email}"),
                         ],
                       ),
                       Positioned(
@@ -66,12 +77,13 @@ class AccountPage extends StatelessWidget {
                         left: 0,
                         right: 0,
                         child: Center(
-                          child: Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              color: MyColor.base,
-                              borderRadius: BorderRadius.circular(50),
+                          child: ClipOval(
+                            child: Image.network(
+                              user?.photoURL ??
+                                  'https://media.newyorker.com/photos/59095bb86552fa0be682d9d0/master/w_1920,c_limit/Monkey-Selfie.jpg',
+                              width: 100,
+                              height: 100,
+                              fit: BoxFit.cover,
                             ),
                           ),
                         ),
@@ -151,7 +163,12 @@ class AccountPage extends StatelessWidget {
             ),
 
             SizedBox(height: 40),
-            MyRegulerBtn.mediumBrand(text: "Logout"),
+            MyRegulerBtn.mediumBrand(
+                text: "Logout",
+                onTap: () {
+                  authProvider.signOut();
+                  navigationProvider.setIsAccountPageState(false);
+                }),
             SizedBox(height: 10),
             MyText.paragraphTwo("Pakdoekang v1.0"),
           ],

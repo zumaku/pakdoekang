@@ -37,11 +37,14 @@ class MyBottomNavbar extends StatelessWidget {
                 case 1:
                 case 4:
                   navigationProvider.setSelectedIndex(index);
+                  navigationProvider.setIsAccountPageState(false);
                   break;
                 case 3:
                   navigationProvider.resetArchiveState();
                   navigationProvider.setSelectedIndex(index);
+                  navigationProvider.setIsAccountPageState(false);
                 case 2:
+                  navigationProvider.setIsAccountPageState(false);
                   showModalBottomSheet(
                     context: context,
                     isScrollControlled: true,
