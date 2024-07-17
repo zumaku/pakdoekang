@@ -3,6 +3,7 @@ import 'package:pakdoekang/dummy_data/dummy_provider.dart';
 import 'package:pakdoekang/pages/account_page.dart';
 import 'package:pakdoekang/pages/archive_page.dart';
 import 'package:pakdoekang/pages/analysis_page.dart';
+import 'package:pakdoekang/pages/login_page.dart';
 import 'package:pakdoekang/pages/search_page.dart';
 import 'package:pakdoekang/pages/today_page.dart';
 import 'package:pakdoekang/services/app_service_provider.dart';
@@ -58,20 +59,21 @@ class MainPage extends StatelessWidget {
     final navigationProvider = Provider.of<NavigationProvider>(context);
     final List<Widget> pages = [
       // TodayPage(),
-      AccountPage(),
+      // AccountPage(),
       SearchPages(),
       Container(), // Just empty page
       ArchivePage(),
       AnalysisPage(),
     ];
 
-    return Scaffold(
-      appBar: MyAppBar(
-        selectedIndex: navigationProvider.selectedIndex,
-        profileImage: 'assets/images/ProfilePicture.png',
-      ),
-      body: pages[navigationProvider.selectedIndex],
-      bottomNavigationBar: MyBottomNavbar(),
-    );
+    // return Scaffold(
+    //   appBar: MyAppBar(
+    //     selectedIndex: navigationProvider.selectedIndex,
+    //     profileImage: 'assets/images/ProfilePicture.png',
+    //   ),
+    //   body: pages[navigationProvider.selectedIndex],
+    //   bottomNavigationBar: MyBottomNavbar(),
+    // );
+    return LoginPage();
   }
 }
