@@ -9,6 +9,7 @@ import 'package:pakdoekang/widgets/buttons/reguler_btn.dart';
 import 'package:pakdoekang/widgets/styles/my_colors.dart';
 import 'package:pakdoekang/widgets/styles/my_text.dart';
 import 'package:provider/provider.dart';
+import 'package:skeleton_loader/skeleton_loader.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AccountPage extends StatefulWidget {
@@ -63,9 +64,12 @@ class _AccountPageState extends State<AccountPage> {
                           Container(
                             height: 100,
                             decoration: BoxDecoration(
-                              color: MyColor.brand2,
-                              borderRadius: BorderRadius.circular(12),
-                            ),
+                                color: MyColor.brand2,
+                                borderRadius: BorderRadius.circular(12),
+                                image: DecorationImage(
+                                  image: AssetImage("assets/images/banner.png"),
+                                  fit: BoxFit.cover,
+                                )),
                           ),
                           SizedBox(height: 50),
                           MyText.headingSix("${user?.displayName}"),
@@ -101,7 +105,35 @@ class _AccountPageState extends State<AccountPage> {
               stream: Provider.of<AppServiceProvider>(context).aboutLinksStream,
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
+                  return Column(
+                    children: [
+                      SkeletonLoader(
+                        builder: Container(
+                          height: 45,
+                          margin: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: MyColor.base5,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        items: 4,
+                        period: Duration(seconds: 1),
+                      ),
+                      SizedBox(height: 40),
+                      SkeletonLoader(
+                        builder: Container(
+                          height: 45,
+                          margin: EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            color: MyColor.base5,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        items: 1,
+                        period: Duration(seconds: 1),
+                      ),
+                    ],
+                  );
                 }
                 if (snapshot.hasError) {
                   return Text('Error: ${snapshot.error}');
