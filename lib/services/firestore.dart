@@ -37,8 +37,8 @@ class FirestoreService {
 
   Stream<List<Transaksi>> getAllTransaksi() {
     return transactions.where('uid', isEqualTo: uid).snapshots().map((snapshot) {
-      print('=== Kode dari Fecthing getAllTransaksi data ===');
-      print('Fetched getAllTransaksi snapshot: ${snapshot.docs.length}');
+      // print('=== Kode dari Fecthing getAllTransaksi data ===');
+      // print('Fetched getAllTransaksi snapshot: ${snapshot.docs.length}');
       return snapshot.docs.map((doc) => Transaksi.fromFirestore(doc)).toList();
     });
   }
@@ -67,8 +67,8 @@ class FirestoreService {
       DateTime now = DateTime.now();
       DateTime threeMonthsAgo = DateTime(now.year, now.month - 5, 1);
 
-      print('=== Kode dari Fecthing getMonthlySpendEarn data ===');
-      print('Fetched getMonthlySpendEarn snapshot: ${snapshot.docs.length}');
+      // print('=== Kode dari Fecthing getMonthlySpendEarn data ===');
+      // print('Fetched getMonthlySpendEarn snapshot: ${snapshot.docs.length}');
 
       for (var doc in snapshot.docs) {
         Transaksi transaksi = Transaksi.fromFirestore(doc);
@@ -119,7 +119,7 @@ class FirestoreService {
           .where((transaction) => _isSameDay(transaction.tanggal, date))
           .toList();
 
-      print(filteredTransactions);
+      // print(filteredTransactions);
       filteredTransactions.sort((a, b) => b.tanggal.compareTo(a.tanggal));
 
       return filteredTransactions;
