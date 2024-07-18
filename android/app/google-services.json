@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "312410734673",
+    "project_id": "pakdoekang",
+    "storage_bucket": "pakdoekang.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312410734673:android:55791ade5e001cfffcb870",
+        "android_client_info": {
+          "package_name": "com.example.pakdoekang"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312410734673-chg8r9nl3nqg07o7sj05u0f391tm2bs9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATBKxqOWwF2hka1Pb7eIQ9X4DmAtaNesM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312410734673-chg8r9nl3nqg07o7sj05u0f391tm2bs9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "312410734673-m243u5juvrlraacn100ful3kistvkvcf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.pakdoekang"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

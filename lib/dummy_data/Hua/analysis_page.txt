@@ -1,0 +1,28 @@
+import 'package:flutter/material.dart';
+import 'package:pakdoekang/widgets/charts/spending_earn_linechart.dart';
+import 'package:pakdoekang/widgets/charts/top_category_piechart.dart';
+import 'package:pakdoekang/widgets/styles/my_text.dart';
+
+class AnalysisPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          minimum: EdgeInsets.all(14),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              TopCategory(),
+              SpendEarnLinechart(),
+              SizedBox(height: 20),
+              MyText.headingSix("Test"),
+              SizedBox(height: 1000),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
