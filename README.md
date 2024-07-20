@@ -1,4 +1,4 @@
-![Pakdoekang](assets/images/cover.png)
+[![Pakdoekang](assets/images/cover.png)](https://www.youtube.com/watch?v=X8IiXapAQ04)
 
 # Pakdoekang
 
@@ -41,4 +41,6 @@ Beri kami semua kritik dan saran untuk mendukung pengembangan aplikasi menjadi j
 
 ## Tentang
 
-Proyek ini adalah bagian dari tugas akhir mata kuliah Pemrograman Mobile semester 6.
+Proyek ini adalah bagian dari tugas akhir mata kuliah Pemrograman Mobile yang diampul oleh Pak Asep, Semester 6 tahun ajaran 2023/2024.
+
+Lihat presentasi kami dengan mengklik gambar di atas atau kunjungi [link ini](https://www.youtube.com/watch?v=X8IiXapAQ04)
