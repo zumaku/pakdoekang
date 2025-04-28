@@ -51,7 +51,7 @@ class _ActivityFormState extends State<ActivityForm> {
       context: context,
       initialDate: _selectedDate,
       firstDate: DateTime(2022),
-      lastDate: DateTime(2025),
+      lastDate: DateTime(9999),   // Tanpa batas tahun
       builder: (BuildContext context, Widget? child) {
         return Theme(
           data: ThemeData.light().copyWith(
