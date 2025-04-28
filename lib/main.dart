@@ -70,6 +70,7 @@ class AuthWrapper extends StatelessWidget {
     if (authProvider.user == null) {
       return LoginPage();
     } else {
+      print("============ LOGIN SUCCESS ============");
       return MainPage();
     }
   }

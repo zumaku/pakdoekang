@@ -202,7 +202,7 @@ class _AccountPageState extends State<AccountPage> {
                   navigationProvider.setIsAccountPageState(false);
                 }),
             SizedBox(height: 10),
-            MyText.paragraphTwo("Pakdoekang v1.0"),
+            MyText.paragraphTwo("Pakdoekang v1.0.1"),
           ],
         ),
       ),
